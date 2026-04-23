@@ -19,7 +19,7 @@ interface Props {
 }
 
 const base =
-  "inline-flex items-center justify-center gap-2 rounded-full font-semibold transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-action";
+  "inline-flex items-center justify-center gap-2 rounded-full font-semibold whitespace-nowrap transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-action";
 
 const variants: Record<Variant, string> = {
   primary: "bg-action text-white hover:bg-[#1FBA58]",
@@ -28,8 +28,8 @@ const variants: Record<Variant, string> = {
 };
 
 const sizes: Record<Size, string> = {
-  md: "h-11 px-5 text-base",
-  lg: "h-14 px-7 text-lg",
+  md: "h-11 px-4 text-sm sm:px-5 sm:text-base",
+  lg: "h-12 px-5 text-base sm:h-14 sm:px-7 sm:text-lg",
 };
 
 export default function WhatsAppButton({

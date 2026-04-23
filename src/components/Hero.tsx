@@ -44,7 +44,7 @@ export default function Hero({
             <p className="mt-5 max-w-xl text-base text-muted md:text-lg lg:text-xl">
               {subtitle}
             </p>
-            <div className="mt-7 flex flex-col items-start gap-3 md:mt-9">
+            <div className="mt-7 w-fit md:mt-9">
               <WhatsAppButton
                 waMessage={waMessage}
                 landing={landing}
@@ -53,7 +53,7 @@ export default function Hero({
               >
                 {ctaText}
               </WhatsAppButton>
-              <p className="text-sm text-muted">
+              <p className="mt-3 text-center text-sm text-muted">
                 <a
                   href="mailto:contato@perfiliza.com"
                   className="font-medium text-ink underline decoration-line underline-offset-2 hover:decoration-ink"

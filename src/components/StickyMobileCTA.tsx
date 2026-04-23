@@ -26,7 +26,7 @@ export default function StickyMobileCTA({ waMessage, landing }: Props) {
 
   return (
     <div
-      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface transition-transform duration-200 md:hidden ${
+      className={`fixed inset-x-0 bottom-0 z-40 border-t border-line bg-surface/90 backdrop-blur transition-transform duration-200 md:hidden ${
         visible ? "translate-y-0" : "translate-y-full"
       }`}
       style={{
@@ -34,19 +34,13 @@ export default function StickyMobileCTA({ waMessage, landing }: Props) {
       }}
       aria-hidden={!visible}
     >
-      <div className="flex min-h-[56px] items-center justify-between gap-3 px-4 py-2">
-        <p className="min-w-0 text-[0.8125rem] font-semibold leading-tight text-ink sm:text-sm">
-          Grátis, em 24h.
-          <span className="block text-[0.6875rem] font-normal text-muted sm:text-xs">
-            Sem cartão, sem fidelidade.
-          </span>
-        </p>
+      <div className="flex items-center justify-center px-4 py-2.5">
         <WhatsAppButton
           waMessage={waMessage}
           landing={landing}
           posicao="sticky_mobile"
           size="md"
-          className="shrink-0 px-4"
+          className="w-full"
         >
           Quero diagnóstico
         </WhatsAppButton>
