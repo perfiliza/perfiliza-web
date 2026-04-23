@@ -1,26 +1,31 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
+/*
+  Design tokens do briefing (_context/copy_landing_pages.md §2.3).
+  Mapeamento briefing → utilitário Tailwind:
+    --color-text    → text-ink
+    --color-border  → border-line
+    --color-bg      → bg-surface
+    --color-bg-alt  → bg-surface-alt
+*/
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-primary: #1A73E8;
+  --color-action: #25D366;
+  --color-success: #1E8E3E;
+  --color-danger: #D93025;
+  --color-ink: #0B1220;
+  --color-muted: #5F6368;
+  --color-line: #E8EAED;
+  --color-surface: #FFFFFF;
+  --color-surface-alt: #F8FAFC;
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --font-sans: var(--font-geist-sans);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+h1, h2 {
+  line-height: 1.15;
 }
