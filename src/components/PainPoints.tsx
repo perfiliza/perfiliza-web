@@ -12,29 +12,40 @@ export default function PainPoints({
   items,
 }: Props) {
   return (
-    <section className="bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+    <section className="reveal relative overflow-hidden bg-surface-alt">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-24">
         <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           {title}
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-muted">
           {subtitle}
         </p>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2">
-          {items.map((item, idx) => (
-            <li
-              key={idx}
-              className="flex items-start gap-3 rounded-xl border border-line bg-surface-alt p-5"
-            >
-              <span
-                aria-hidden="true"
-                className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 sm:gap-6">
+          {items.map((item, idx) => {
+            const tilt = idx % 2 === 0 ? "md:-rotate-1" : "md:rotate-1";
+            return (
+              <li
+                key={idx}
+                className={`group relative rounded-3xl border border-line bg-surface p-6 pt-10 shadow-[var(--shadow-lift)] transition-transform duration-200 hover:rotate-0 ${tilt}`}
               >
-                <PainIcon name={item.icon} />
-              </span>
-              <p className="text-base text-ink md:text-lg">{item.text}</p>
-            </li>
-          ))}
+                <span
+                  aria-hidden="true"
+                  className="font-display pointer-events-none absolute -top-2 left-4 text-7xl leading-none text-primary/20 select-none"
+                >
+                  &ldquo;
+                </span>
+                <div className="flex items-start gap-3">
+                  <span
+                    aria-hidden="true"
+                    className="mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-primary"
+                  >
+                    <PainIcon name={item.icon} />
+                  </span>
+                  <p className="text-base text-ink md:text-lg">{item.text}</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </section>

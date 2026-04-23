@@ -19,8 +19,212 @@
   --color-surface: #FFFFFF;
   --color-surface-alt: #F8FAFC;
 
+  /* Hierarquia dark para FinalCTA e mockups dark */
+  --color-ink-900: #05080F;
+  --color-ink-700: #1A2233;
+
+  /* Variantes do primary para gradient mesh e acentos */
+  --color-primary-dark: #0F4FBF;
+  --color-primary-soft: #E8F0FE;
+  --color-action-dark: #1FA851;
+
+  /* Mesh palette — stops nomeados para gradients ricos */
+  --color-mesh-1: #3B82F6;
+  --color-mesh-2: #10B981;
+  --color-mesh-3: #A78BFA;
+
   --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-fraunces);
+
+  --shadow-lift: 0 1px 2px rgba(11,18,32,0.04), 0 8px 24px -8px rgba(11,18,32,0.12);
+  --shadow-glow-action: 0 0 0 0 rgba(37,211,102,0.45);
 }
+
+/* ===== @property para gradient border animada (Pricing highlight) ===== */
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+/* ===== Utilities customizadas (Tailwind v4) ===== */
+
+@utility glass {
+  background: color-mix(in oklab, var(--color-surface) 72%, transparent);
+  backdrop-filter: blur(14px) saturate(1.15);
+  -webkit-backdrop-filter: blur(14px) saturate(1.15);
+  border: 1px solid color-mix(in oklab, var(--color-line) 60%, transparent);
+}
+
+@utility glass-dark {
+  background: color-mix(in oklab, var(--color-ink-900) 55%, transparent);
+  backdrop-filter: blur(14px) saturate(1.2);
+  -webkit-backdrop-filter: blur(14px) saturate(1.2);
+  border: 1px solid color-mix(in oklab, #FFFFFF 12%, transparent);
+}
+
+@utility mesh-base {
+  background:
+    radial-gradient(40% 60% at 15% 20%, color-mix(in oklab, var(--color-mesh-1) 18%, transparent) 0%, transparent 60%),
+    radial-gradient(35% 55% at 85% 10%, color-mix(in oklab, var(--color-mesh-2) 20%, transparent) 0%, transparent 60%),
+    radial-gradient(50% 70% at 50% 95%, color-mix(in oklab, var(--color-mesh-3) 14%, transparent) 0%, transparent 60%),
+    var(--color-surface);
+}
+
+@utility mesh-cta {
+  background:
+    radial-gradient(50% 60% at 10% 10%, color-mix(in oklab, var(--color-mesh-2) 55%, transparent) 0%, transparent 60%),
+    radial-gradient(55% 65% at 90% 20%, color-mix(in oklab, var(--color-mesh-3) 40%, transparent) 0%, transparent 60%),
+    radial-gradient(60% 70% at 50% 110%, color-mix(in oklab, var(--color-primary) 85%, transparent) 0%, transparent 60%),
+    linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+}
+
+/* Noise overlay — SVG feTurbulence data-URI, aplicado via ::after */
+@utility noise {
+  position: relative;
+  isolation: isolate;
+}
+
+.noise::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.05;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.7'/></svg>");
+}
+
+.noise-dark::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0.10;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)' opacity='0.9'/></svg>");
+}
+
+/* ===== Keyframes ===== */
+
+@keyframes marquee-x {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@keyframes reveal-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.55; transform: scale(0.85); }
+}
+
+@keyframes pulse-glow-action {
+  0%, 100% { box-shadow: 0 0 0 0 color-mix(in oklab, var(--color-action) 45%, transparent); }
+  50% { box-shadow: 0 0 0 14px color-mix(in oklab, var(--color-action) 0%, transparent); }
+}
+
+@keyframes spin-angle {
+  to { --angle: 360deg; }
+}
+
+/* ===== Display helper (Fraunces) ===== */
+
+.font-display {
+  font-family: var(--font-display), ui-serif, Georgia, "Times New Roman", serif;
+  font-optical-sizing: auto;
+  font-variation-settings: "opsz" 144;
+  letter-spacing: -0.02em;
+}
+
+/* ===== Scroll reveal ===== */
+
+.reveal {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 520ms ease-out, transform 520ms cubic-bezier(0.2, 0, 0, 1);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.reveal.is-in {
+  opacity: 1;
+  transform: none;
+}
+
+@supports (animation-timeline: view()) {
+  .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+    animation: reveal-up linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 30%;
+  }
+  .reveal.is-in {
+    animation: none;
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===== Marquee wrappers ===== */
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee-x 22s linear infinite;
+}
+
+/* ===== Pulse dot (BadgeLive) ===== */
+
+.pulse-dot {
+  animation: pulse-dot 1.6s ease-in-out infinite;
+}
+
+/* ===== Pulse glow wrapper (FinalCTA) ===== */
+
+.pulse-glow {
+  border-radius: 9999px;
+  animation: pulse-glow-action 2.6s ease-in-out infinite;
+}
+
+/* ===== Gradient border animada (Pricing highlight) ===== */
+
+.border-rotate {
+  position: relative;
+  isolation: isolate;
+  background: var(--color-surface);
+}
+
+.border-rotate::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  padding: 1.5px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-mesh-2), var(--color-primary));
+  -webkit-mask:
+    linear-gradient(#000 0 0) content-box,
+    linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+          mask-composite: exclude;
+}
+
+@supports (background: conic-gradient(from var(--angle, 0deg), red, blue)) {
+  .border-rotate::before {
+    background: conic-gradient(from var(--angle), var(--color-primary), var(--color-mesh-2), var(--color-mesh-3), var(--color-primary));
+    animation: spin-angle 7s linear infinite;
+  }
+}
+
+/* ===== Scroll smooth (Next 16 não força mais) ===== */
+
+html { scroll-behavior: smooth; }
 
 body {
   line-height: 1.45;
@@ -28,4 +232,19 @@ body {
 
 h1, h2 {
   line-height: 1.15;
+}
+
+/* ===== Reduced motion ===== */
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  html { scroll-behavior: auto !important; }
+  .reveal, .reveal.is-in { opacity: 1 !important; transform: none !important; animation: none !important; }
+  .marquee-track { animation: none !important; }
+  .pulse-dot, .pulse-glow { animation: none !important; }
+  .border-rotate::before { animation: none !important; }
 }

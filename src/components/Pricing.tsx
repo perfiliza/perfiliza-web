@@ -1,4 +1,5 @@
 import WhatsAppButton from "./WhatsAppButton";
+import MeshGradient from "./visual/MeshGradient";
 import type { NicheKey } from "@/types/content";
 
 interface Props {
@@ -42,8 +43,9 @@ const PLANS = [
 
 export default function Pricing({ waMessage, landing }: Props) {
   return (
-    <section id="planos" className="bg-surface scroll-mt-20">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+    <section id="planos" className="reveal relative overflow-hidden bg-surface scroll-mt-20">
+      <MeshGradient variant="section" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-24">
         <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           Dois planos. Primeiro mês por nossa conta nos dois.
         </h2>
@@ -51,71 +53,73 @@ export default function Pricing({ waMessage, landing }: Props) {
           Você começa sem pagar. No dia 30, decide se continua.
         </p>
 
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
+        <div className="mt-12 grid gap-8 md:grid-cols-2 md:gap-6">
           {PLANS.map((plan) => {
-            const cardCls = plan.highlighted
-              ? "border-2 border-primary"
-              : "border border-line";
+            const outerCls = plan.highlighted
+              ? "border-rotate rounded-2xl shadow-[0_0_0_1px_color-mix(in_oklab,var(--color-primary)_20%,transparent),0_20px_60px_-20px_color-mix(in_oklab,var(--color-primary)_35%,transparent)]"
+              : "rounded-2xl border border-line bg-surface";
             return (
               <div
                 key={plan.name}
-                className={`relative rounded-2xl bg-surface p-5 md:p-8 ${cardCls}`}
+                className={`relative ${outerCls}`}
               >
-                <span
-                  className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ${
-                    plan.highlighted ? "bg-primary" : "bg-success"
-                  }`}
-                >
-                  {plan.highlighted
-                    ? "Recomendado · 1º mês grátis"
-                    : "1º mês por nossa conta"}
-                </span>
-                <h3 className="mt-2 text-2xl font-bold text-ink">
-                  {plan.name}
-                </h3>
-                <p className="mt-1 text-muted">{plan.tagline}</p>
-                <div className="mt-5 flex items-baseline gap-1">
-                  <span className="text-4xl font-bold text-ink">
-                    {plan.price}
-                  </span>
-                  <span className="text-muted">{plan.period}</span>
-                </div>
-                <ul className="mt-6 space-y-2.5">
-                  {plan.features.map((f) => (
-                    <li key={f} className="flex items-start gap-2">
-                      <svg
-                        aria-hidden="true"
-                        viewBox="0 0 24 24"
-                        className="h-5 w-5 shrink-0 mt-0.5 text-success"
-                        fill="none"
-                        stroke="currentColor"
-                        strokeWidth={3}
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                      >
-                        <path d="m5 12 5 5L20 7" />
-                      </svg>
-                      <span className="text-ink">{f}</span>
-                    </li>
-                  ))}
-                </ul>
-                <div className="mt-8">
-                  <WhatsAppButton
-                    waMessage={waMessage}
-                    landing={landing}
-                    posicao="precos"
-                    variant="primary"
-                    size="md"
-                    className="w-full"
+                <div className="relative rounded-2xl p-6 md:p-8">
+                  <span
+                    className={`absolute -top-3 left-6 rounded-full px-3 py-1 text-xs font-semibold uppercase tracking-wide text-white ${
+                      plan.highlighted ? "bg-primary" : "bg-success"
+                    }`}
                   >
-                    Quero meu diagnóstico
-                  </WhatsAppButton>
+                    {plan.highlighted
+                      ? "Recomendado · 1º mês grátis"
+                      : "1º mês por nossa conta"}
+                  </span>
+                  <h3 className="mt-2 text-2xl font-bold text-ink">
+                    {plan.name}
+                  </h3>
+                  <p className="mt-1 text-muted">{plan.tagline}</p>
+                  <div className="mt-6 flex items-baseline gap-1.5">
+                    <span className="font-display text-5xl text-ink md:text-6xl">
+                      {plan.price}
+                    </span>
+                    <span className="text-muted">{plan.period}</span>
+                  </div>
+                  <ul className="mt-7 space-y-2.5">
+                    {plan.features.map((f) => (
+                      <li key={f} className="flex items-start gap-2">
+                        <svg
+                          aria-hidden="true"
+                          viewBox="0 0 24 24"
+                          className="h-5 w-5 shrink-0 mt-0.5 text-success"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth={3}
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="m5 12 5 5L20 7" />
+                        </svg>
+                        <span className="text-ink">{f}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="mt-8">
+                    <WhatsAppButton
+                      waMessage={waMessage}
+                      landing={landing}
+                      posicao="precos"
+                      variant="primary"
+                      size="md"
+                      className="w-full"
+                    >
+                      Quero meu diagnóstico
+                    </WhatsAppButton>
+                  </div>
                 </div>
               </div>
             );
           })}
         </div>
-        <p className="mt-8 text-center text-sm text-muted">
+        <p className="mt-10 text-center text-sm text-muted">
           PIX mensal · sem contrato · cancelamento em 1 mensagem por WhatsApp ·
           seu preço nunca sobe enquanto você for cliente.
         </p>

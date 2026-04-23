@@ -1,3 +1,7 @@
+import MockupFrame from "./visual/MockupFrame";
+import GoogleMapsScene from "./visual/scenes/GoogleMapsScene";
+import ChatGptScene from "./visual/scenes/ChatGptScene";
+
 interface Props {
   googleText?: string;
   aiText?: string;
@@ -8,14 +12,28 @@ export default function WhereTheyFindYou({
   aiText = "ChatGPT, Gemini, Claude, Perplexity. Hoje, milhões de brasileiros pedem recomendação à IA antes de decidir. Se você não aparece nas respostas, seu concorrente aparece. A Perfiliza cuida disso também.",
 }: Props) {
   return (
-    <section className="bg-surface-alt">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+    <section className="reveal relative overflow-hidden bg-surface-alt">
+      <div className="mx-auto max-w-6xl px-6 py-14 md:py-24">
         <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           Seu cliente procura em dois lugares.
           <br className="hidden md:inline" /> A gente cuida dos dois.
         </h2>
-        <div className="mt-10 grid gap-6 md:grid-cols-2">
-          <div className="rounded-2xl border border-line bg-surface p-6 md:p-8">
+
+        <div className="mt-12 grid gap-6 md:grid-cols-2 md:gap-8">
+          {/* Card Google */}
+          <article className="relative overflow-hidden rounded-2xl border border-line bg-surface p-6 md:p-8">
+            <div className="relative mb-6">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-4 -z-10 rounded-2xl bg-gradient-to-br from-primary/15 to-mesh-2/10 blur-xl"
+              />
+              <MockupFrame
+                variant="maps"
+                ariaLabel="Prévia de busca no Google Maps com o seu negócio em destaque entre concorrentes"
+              >
+                <GoogleMapsScene />
+              </MockupFrame>
+            </div>
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
               <svg
                 aria-hidden="true"
@@ -37,8 +55,23 @@ export default function WhereTheyFindYou({
               Cuidamos disso no Starter · R$ 197/mês
               <span aria-hidden="true">→</span>
             </a>
-          </div>
-          <div className="rounded-2xl border border-line bg-surface p-6 md:p-8">
+          </article>
+
+          {/* Card IA */}
+          <article className="relative overflow-hidden rounded-2xl border border-line bg-surface p-6 md:p-8">
+            <div className="relative mb-6">
+              <div
+                aria-hidden="true"
+                className="absolute -inset-4 -z-10 rounded-2xl bg-gradient-to-br from-mesh-3/20 to-mesh-1/10 blur-xl"
+              />
+              <MockupFrame
+                variant="chat"
+                ariaLabel="Prévia de uma conversa com IA recomendando o seu negócio, com o selo Perfiliza como fonte"
+                className="mx-auto max-w-sm"
+              >
+                <ChatGptScene />
+              </MockupFrame>
+            </div>
             <div className="flex h-12 w-12 items-center justify-center rounded-full bg-primary/10 text-primary">
               <svg
                 aria-hidden="true"
@@ -60,7 +93,7 @@ export default function WhereTheyFindYou({
               Incluso no Growth · R$ 297/mês
               <span aria-hidden="true">→</span>
             </a>
-          </div>
+          </article>
         </div>
       </div>
     </section>

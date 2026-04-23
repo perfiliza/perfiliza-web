@@ -1,38 +1,53 @@
+import AnimatedCounter from "./visual/AnimatedCounter";
+import MeshGradient from "./visual/MeshGradient";
+
 const DELIVERABLES = [
   {
-    value: "4 posts",
+    to: 4,
+    suffix: " posts",
     label: "Redigidos, formatados e publicados com foto por nós.",
   },
   {
-    value: "100%",
+    to: 100,
+    suffix: "%",
     label: "Das avaliações respondidas, revisadas por humano.",
   },
   {
-    value: "20 perguntas",
+    to: 20,
+    suffix: " perguntas",
     label: "Testadas em ChatGPT, Gemini e Perplexity todo mês (Growth).",
   },
 ] as const;
 
 export default function ProofSection() {
   return (
-    <section className="bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+    <section className="reveal noise relative overflow-hidden bg-surface">
+      <MeshGradient variant="section" />
+      <div className="relative z-10 mx-auto max-w-6xl px-6 py-14 md:py-24">
         <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           O que entra no seu Google todo mês.
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-base text-muted md:text-lg">
           Feito, não prometido. Igual pra todo cliente, todo mês.
         </p>
-        <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
+        <ul className="mt-12 grid gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {DELIVERABLES.map((item) => (
             <li
-              key={item.value}
-              className="rounded-2xl border border-line bg-surface-alt p-6 text-center"
+              key={item.suffix}
+              className="relative overflow-hidden rounded-2xl border border-line bg-surface p-7 text-center shadow-[var(--shadow-lift)]"
             >
-              <div className="text-3xl font-bold tracking-tight text-primary md:text-4xl">
-                {item.value}
+              <div
+                aria-hidden="true"
+                className="absolute -top-16 left-1/2 h-32 w-32 -translate-x-1/2 rounded-full bg-primary/5 blur-2xl"
+              />
+              <div className="relative">
+                <div className="font-display text-6xl leading-none tracking-tight md:text-7xl">
+                  <span className="bg-gradient-to-br from-primary to-primary-dark bg-clip-text text-transparent">
+                    <AnimatedCounter to={item.to} suffix={item.suffix} />
+                  </span>
+                </div>
+                <p className="mt-4 text-ink">{item.label}</p>
               </div>
-              <p className="mt-2 text-ink">{item.label}</p>
             </li>
           ))}
         </ul>

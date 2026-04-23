@@ -42,7 +42,7 @@ export default function SiteHeader() {
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-30 border-b border-line bg-surface/85 backdrop-blur supports-[backdrop-filter]:bg-surface/75">
+    <header className="sticky top-0 z-30 border-b border-line bg-surface/85 backdrop-blur supports-[backdrop-filter]:bg-surface/70">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-2.5 md:px-6 md:py-3">
         <Link
           href="/"
@@ -60,10 +60,19 @@ export default function SiteHeader() {
             aria-expanded={open}
             aria-controls="site-menu"
             onClick={() => setOpen((prev) => !prev)}
-            className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            className="group relative inline-flex h-11 w-11 items-center justify-center rounded-full border border-line bg-surface text-ink transition-colors hover:bg-surface-alt focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
           >
-            {open ? <CloseIcon /> : <BurgerIcon />}
+            <BurgerMorph open={open} />
           </button>
+
+          {/* Mobile backdrop */}
+          <div
+            aria-hidden="true"
+            className={`fixed inset-0 z-[-1] bg-ink-900/20 backdrop-blur-sm transition-opacity duration-200 md:hidden ${
+              open ? "pointer-events-auto opacity-100" : "pointer-events-none opacity-0"
+            }`}
+            onClick={() => setOpen(false)}
+          />
 
           <div
             ref={panelRef}
@@ -96,36 +105,37 @@ export default function SiteHeader() {
   );
 }
 
-function BurgerIcon() {
+function BurgerMorph({ open }: { open: boolean }) {
+  const bar =
+    "absolute left-1/2 h-[2px] w-5 -translate-x-1/2 rounded-full bg-current transition-transform duration-200 ease-out";
   return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-5 w-5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2.25}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M4 7h16M4 12h16M4 17h16" />
-    </svg>
-  );
-}
-
-function CloseIcon() {
-  return (
-    <svg
-      aria-hidden="true"
-      viewBox="0 0 24 24"
-      className="h-5 w-5"
-      fill="none"
-      stroke="currentColor"
-      strokeWidth={2.25}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-    >
-      <path d="M6 6l12 12M6 18L18 6" />
-    </svg>
+    <span aria-hidden="true" className="relative block h-5 w-5">
+      <span
+        className={bar}
+        style={{
+          top: open ? "50%" : "30%",
+          transform: open
+            ? "translate(-50%, -50%) rotate(45deg)"
+            : "translate(-50%, 0)",
+        }}
+      />
+      <span
+        className={`${bar} transition-opacity duration-150`}
+        style={{
+          top: "50%",
+          transform: "translate(-50%, -50%)",
+          opacity: open ? 0 : 1,
+        }}
+      />
+      <span
+        className={bar}
+        style={{
+          top: open ? "50%" : "70%",
+          transform: open
+            ? "translate(-50%, -50%) rotate(-45deg)"
+            : "translate(-50%, 0)",
+        }}
+      />
+    </span>
   );
 }

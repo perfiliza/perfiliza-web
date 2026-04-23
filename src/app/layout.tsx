@@ -1,12 +1,20 @@
 import type { Metadata, Viewport } from "next";
-import { Geist } from "next/font/google";
+import { Geist, Fraunces } from "next/font/google";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
+import RevealMount from "@/components/visual/RevealMount";
 import "./globals.css";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+});
+
+const fraunces = Fraunces({
+  variable: "--font-fraunces",
+  subsets: ["latin"],
+  display: "swap",
+  axes: ["opsz"],
 });
 
 export const metadata: Metadata = {
@@ -47,9 +55,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} h-full antialiased`} suppressHydrationWarning>
+    <html lang="pt-BR" className={`${geistSans.variable} ${fraunces.variable} h-full antialiased`} suppressHydrationWarning>
       <body className="min-h-full flex flex-col bg-surface text-ink font-sans">
         {children}
+        <RevealMount />
         <GoogleAnalytics />
         <MetaPixel />
       </body>
