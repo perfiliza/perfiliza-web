@@ -6,8 +6,8 @@ const STEPS = [
   },
   {
     num: 2,
-    title: "Nos adicione como Administrador",
-    body: "Em 2 minutos, pelo painel do Google. Sem senha, sem fricção. Remove quando quiser.",
+    title: "Você me adiciona como Administrador",
+    body: "Em 2 minutos, pelo painel do Google. Sem senha, sem fricção. Você remove quando quiser.",
   },
   {
     num: 3,

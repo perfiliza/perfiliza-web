@@ -11,8 +11,8 @@ export const odonto: NicheContent = {
   hero: {
     title: "Pacientes procuram dentista no Google toda hora.",
     subtitle:
-      "A gente cuida do seu perfil toda semana. Primeiro mês por nossa conta. Depois, R$ 197/mês via PIX — sem fidelidade.",
-    ctaText: "Começar grátis",
+      "A gente cuida do seu perfil toda semana. Primeiro mês por nossa conta. Se não fizer sentido, se despede sem cobrar nada.",
+    ctaText: "Quero meu diagnóstico gratuito",
   },
   painPoints: [
     { icon: "calendar", text: "Minha agenda só enche por indicação." },

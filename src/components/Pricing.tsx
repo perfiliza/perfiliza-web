@@ -33,8 +33,8 @@ const PLANS = [
       "Tudo do Starter.",
       "Auditoria mensal em ChatGPT, Gemini, Perplexity e Claude — 20 perguntas reais.",
       "Cadastro em Foursquare, Apple Business e Bing — as fontes da IA.",
-      "Ajustes técnicos no seu site (marcação estruturada para IA).",
-      "Relatório mensal GEO por IA.",
+      "Ajustes técnicos no seu site pra IA conseguir te achar.",
+      "Relatório mensal de menções em IA.",
     ],
     highlighted: true,
   },
@@ -108,7 +108,7 @@ export default function Pricing({ waMessage, landing }: Props) {
                     size="md"
                     className="w-full"
                   >
-                    Começar grátis
+                    Quero meu diagnóstico
                   </WhatsAppButton>
                 </div>
               </div>
@@ -117,7 +117,7 @@ export default function Pricing({ waMessage, landing }: Props) {
         </div>
         <p className="mt-8 text-center text-sm text-muted">
           PIX mensal · sem contrato · cancelamento em 1 mensagem por WhatsApp ·
-          preço legacy pra quem entra no beta (o seu preço nunca sobe).
+          seu preço nunca sobe enquanto você for cliente.
         </p>
       </div>
     </section>

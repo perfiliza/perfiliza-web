@@ -35,7 +35,7 @@ export default function NichePage({ content }: Props) {
 
   return (
     <>
-      <SiteHeader waMessage={waMessages.hero} landing={key} />
+      <SiteHeader />
       <main>
         <Hero
           title={hero.title}

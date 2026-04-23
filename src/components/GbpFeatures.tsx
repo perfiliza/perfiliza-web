@@ -53,7 +53,7 @@ export default function GbpFeatures({
   return (
     <section className="bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
-        <div className="max-w-3xl">
+        <div className="mx-auto max-w-3xl text-center">
           <h2 className="text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
             Seu Google Meu Negócio tem muito mais do que você imagina.
           </h2>

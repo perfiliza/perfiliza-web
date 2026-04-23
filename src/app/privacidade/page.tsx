@@ -38,9 +38,9 @@ export default function PrivacidadePage() {
           1. Quem é o responsável pelos dados
         </h2>
         <p>
-          A Perfiliza é operada em pessoa física (CPF) por Reinaldo Gonzaga —
-          em processo de abertura de MEI. O canal oficial de atendimento e
-          encarregado pelo tratamento de dados (DPO) é{" "}
+          A Perfiliza é operada como pessoa física em processo de formalização
+          como MEI. O canal oficial de atendimento e encarregado pelo
+          tratamento de dados (DPO) é{" "}
           <strong>contato@perfiliza.com</strong>.
         </p>
       </section>

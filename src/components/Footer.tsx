@@ -1,5 +1,6 @@
 import Link from "next/link";
 import BrandLogo from "./BrandLogo";
+import { buildWaUrl } from "@/lib/whatsapp";
 
 interface Props {
   nicheDisclaimer?: string;
@@ -7,6 +8,9 @@ interface Props {
 
 export default function Footer({ nicheDisclaimer }: Props) {
   const year = new Date().getFullYear();
+  const footerWaUrl = buildWaUrl(
+    "Oi! Vim pelo rodapé do site da Perfiliza. Quero o diagnóstico gratuito do meu Google.",
+  );
 
   return (
     <footer className="bg-surface border-t border-line">
@@ -50,6 +54,16 @@ export default function Footer({ nicheDisclaimer }: Props) {
           <div>
             <p className="text-sm font-semibold text-ink">Legal e contato</p>
             <ul className="mt-2 text-sm text-muted">
+              <li>
+                <a
+                  href={footerWaUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block py-1.5 hover:text-ink"
+                >
+                  Falar no WhatsApp
+                </a>
+              </li>
               <li>
                 <Link
                   href="/privacidade"

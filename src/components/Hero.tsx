@@ -10,7 +10,7 @@ interface Props extends HeroData {
 export default function Hero({
   title,
   subtitle,
-  ctaText = "Começar grátis",
+  ctaText = "Quero meu diagnóstico gratuito",
   imageSrc,
   imageAlt,
   waMessage,
@@ -27,7 +27,7 @@ export default function Hero({
             <p className="mt-4 text-base text-muted md:mt-5 md:text-lg lg:text-xl">
               {subtitle}
             </p>
-            <div className="mt-6 flex flex-col items-start gap-3 md:mt-8">
+            <div className="mt-6 w-fit md:mt-8">
               <WhatsAppButton
                 waMessage={waMessage}
                 landing={landing}
@@ -36,8 +36,7 @@ export default function Hero({
               >
                 {ctaText}
               </WhatsAppButton>
-              <p className="text-sm text-muted">
-                Prefere por e-mail?{" "}
+              <p className="mt-3 text-center text-sm text-muted">
                 <a
                   href="mailto:contato@perfiliza.com"
                   className="font-medium text-ink underline decoration-line underline-offset-2 hover:decoration-ink"

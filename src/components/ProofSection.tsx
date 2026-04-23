@@ -18,10 +18,10 @@ export default function ProofSection() {
     <section className="bg-surface">
       <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
         <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
-          A entrega mensal, sem mistério.
+          O que entra no seu Google todo mês.
         </h2>
         <p className="mx-auto mt-3 max-w-2xl text-center text-base text-muted md:text-lg">
-          O que a gente coloca de pé no seu Google todo mês — feito, não prometido.
+          Feito, não prometido. Igual pra todo cliente, todo mês.
         </p>
         <ul className="mt-10 grid gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3">
           {DELIVERABLES.map((item) => (

@@ -16,11 +16,11 @@ export const metadata: Metadata = {
     template: "%s · Perfiliza",
   },
   description:
-    "Cuidamos do seu Google Meu Negócio toda semana e fazemos a IA te recomendar. Primeiro mês por nossa conta, sem fidelidade.",
+    "Cuidamos do seu Google Meu Negócio toda semana e ajudamos a IA a te recomendar. Primeiro mês por nossa conta, sem fidelidade.",
   openGraph: {
     title: "Perfiliza",
     description:
-      "Cuidamos do seu Google Meu Negócio toda semana e fazemos a IA te recomendar. Primeiro mês por nossa conta, sem fidelidade.",
+      "Cuidamos do seu Google Meu Negócio toda semana e ajudamos a IA a te recomendar. Primeiro mês por nossa conta, sem fidelidade.",
     url: "https://perfiliza.com",
     siteName: "Perfiliza",
     locale: "pt_BR",
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Perfiliza",
     description:
-      "Cuidamos do seu Google Meu Negócio toda semana e fazemos a IA te recomendar.",
+      "Cuidamos do seu Google Meu Negócio toda semana e ajudamos a IA a te recomendar.",
   },
   robots: { index: true, follow: true },
 };

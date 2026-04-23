@@ -25,8 +25,8 @@ export default function TermosPage() {
         <h2 className="text-xl font-semibold text-ink">1. Quem é quem</h2>
         <p>
           <strong>Perfiliza</strong> é o serviço de consultoria em Google Meu
-          Negócio e GEO operado em pessoa física (CPF) por Reinaldo Gonzaga,
-          contato oficial{" "}
+          Negócio e GEO operado em pessoa física (CPF), com MEI em
+          formalização. Contato oficial:{" "}
           <a
             href="mailto:contato@perfiliza.com"
             className="font-medium text-primary hover:underline"
@@ -65,7 +65,7 @@ export default function TermosPage() {
           </li>
         </ul>
         <p>
-          O serviço é executado manualmente pelo fundador, em até 7 dias úteis
+          O serviço é executado manualmente pela Perfiliza, em até 7 dias úteis
           por ciclo de publicação, com ação semanal. Postagens, respostas e
           atualizações no perfil são feitas via painel oficial do Google
           (business.google.com), nunca por API não autorizada.

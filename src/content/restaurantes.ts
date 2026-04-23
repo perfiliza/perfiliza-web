@@ -11,8 +11,8 @@ export const restaurantes: NicheContent = {
   hero: {
     title: "“Comer perto de mim” decide quem lota o salão.",
     subtitle:
-      "Quando alguém pesquisa restaurante no Google, alguém ganha a mesa. A Perfiliza faz você ser esse alguém. Primeiro mês por nossa conta.",
-    ctaText: "Começar grátis",
+      "Quem busca restaurante no Google decide em segundos. Primeiro mês por nossa conta. Se não fizer sentido, se despede sem cobrar nada.",
+    ctaText: "Quero meu diagnóstico gratuito",
   },
   painPoints: [
     { icon: "magnifier", text: "Quem pesquisa “comer perto” não me encontra." },

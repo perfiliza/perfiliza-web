@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
-      <SiteHeader waMessage={homeWaMessages.hero} landing="home" />
+      <SiteHeader />
       <main>
         <Hero
           title={homeHero.title}

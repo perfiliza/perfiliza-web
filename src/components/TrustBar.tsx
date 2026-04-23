@@ -9,11 +9,11 @@ export default function TrustBar() {
           </li>
           <li className="flex items-center gap-2">
             <Check />
-            <span>Sem fidelidade, cancelamento em 1 mensagem</span>
+            <span>Sem cartão. PIX só quando fizer sentido.</span>
           </li>
           <li className="flex items-center gap-2">
             <Check />
-            <span>Diagnóstico gratuito pelo WhatsApp</span>
+            <span>Sem fidelidade, cancela em 1 mensagem</span>
           </li>
         </ul>
       </div>

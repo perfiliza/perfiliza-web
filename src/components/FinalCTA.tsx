@@ -25,10 +25,9 @@ export default function FinalCTA({ waMessage, landing }: Props) {
             posicao="cta_final"
             size="lg"
           >
-            Começar grátis
+            Quero meu diagnóstico gratuito
           </WhatsAppButton>
           <p className="text-sm text-white/85">
-            Prefere por e-mail?{" "}
             <a
               href="mailto:contato@perfiliza.com"
               className="font-medium text-white underline decoration-white/40 underline-offset-2 hover:decoration-white"

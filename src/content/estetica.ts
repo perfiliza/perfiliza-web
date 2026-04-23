@@ -11,8 +11,8 @@ export const estetica: NicheContent = {
   hero: {
     title: "Seu Instagram vai bem. Seu Google some.",
     subtitle:
-      "Clientes novas te procuram no Google antes de agendar. A Perfiliza cuida desse canal por você — primeiro mês por nossa conta.",
-    ctaText: "Começar grátis",
+      "Clientes novas procuram no Google antes de agendar. Primeiro mês por nossa conta. Se não fizer sentido, se despede sem cobrar nada.",
+    ctaText: "Quero meu diagnóstico gratuito",
   },
   painPoints: [
     { icon: "smartphone", text: "Meu Instagram bomba, meu Google some." },

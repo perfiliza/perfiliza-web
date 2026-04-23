@@ -36,7 +36,10 @@ export default function StickyMobileCTA({ waMessage, landing }: Props) {
     >
       <div className="flex min-h-[56px] items-center justify-between gap-3 px-4 py-2">
         <p className="min-w-0 text-[0.8125rem] font-semibold leading-tight text-ink sm:text-sm">
-          Diagnóstico grátis
+          Grátis, em 24h.
+          <span className="block text-[0.6875rem] font-normal text-muted sm:text-xs">
+            Sem cartão, sem fidelidade.
+          </span>
         </p>
         <WhatsAppButton
           waMessage={waMessage}
@@ -45,7 +48,7 @@ export default function StickyMobileCTA({ waMessage, landing }: Props) {
           size="md"
           className="shrink-0 px-4"
         >
-          WhatsApp
+          Quero diagnóstico
         </WhatsAppButton>
       </div>
     </div>
