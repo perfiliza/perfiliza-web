@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist } from "next/font/google";
 import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
 import MetaPixel from "@/components/analytics/MetaPixel";
@@ -33,6 +33,12 @@ export const metadata: Metadata = {
       "Cuidamos do seu Google Meu Negócio toda semana e fazemos a IA te recomendar.",
   },
   robots: { index: true, follow: true },
+};
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#1A73E8",
 };
 
 export default function RootLayout({

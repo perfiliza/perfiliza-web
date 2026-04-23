@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import BrandLogo from "./BrandLogo";
 import Footer from "./Footer";
 
 interface Props {
@@ -12,15 +13,19 @@ export default function LegalLayout({ title, updatedAt, children }: Props) {
   return (
     <>
       <header className="border-b border-line bg-surface">
-        <div className="mx-auto flex max-w-3xl items-center justify-between px-6 py-5">
-          <Link href="/" className="text-lg font-bold text-ink">
-            Perfiliza
+        <div className="mx-auto flex max-w-3xl items-center justify-between px-4 py-4 md:px-6 md:py-5">
+          <Link
+            href="/"
+            aria-label="Perfiliza — página inicial"
+            className="rounded-full focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+          >
+            <BrandLogo />
           </Link>
           <Link
             href="/"
             className="text-sm font-medium text-muted hover:text-ink"
           >
-            ← Voltar à home
+            ← Voltar
           </Link>
         </div>
       </header>

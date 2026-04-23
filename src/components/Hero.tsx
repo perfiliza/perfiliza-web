@@ -10,7 +10,7 @@ interface Props extends HeroData {
 export default function Hero({
   title,
   subtitle,
-  ctaText = "Quero meu diagnóstico gratuito",
+  ctaText = "Começar grátis",
   imageSrc,
   imageAlt,
   waMessage,
@@ -18,14 +18,16 @@ export default function Hero({
 }: Props) {
   return (
     <section id="hero" className="bg-surface">
-      <div className="mx-auto max-w-6xl px-6 pt-10 pb-14 md:pt-20 md:pb-24">
-        <div className="grid items-center gap-10 md:grid-cols-2 md:gap-12">
-          <div className="order-2 md:order-1">
-            <h1 className="text-[2.25rem] leading-[1.15] font-bold tracking-tight text-ink md:text-5xl lg:text-6xl">
+      <div className="mx-auto max-w-6xl px-6 pt-8 pb-12 md:pt-20 md:pb-24">
+        <div className="grid items-center gap-8 md:grid-cols-2 md:gap-12">
+          <div className="order-1 md:order-1">
+            <h1 className="text-[1.875rem] leading-[1.15] font-bold tracking-normal text-ink sm:text-[2.25rem] md:tracking-tight md:text-5xl lg:text-6xl">
               {title}
             </h1>
-            <p className="mt-5 text-lg text-muted md:text-xl">{subtitle}</p>
-            <div className="mt-8 flex flex-col items-start gap-3">
+            <p className="mt-4 text-base text-muted md:mt-5 md:text-lg lg:text-xl">
+              {subtitle}
+            </p>
+            <div className="mt-6 flex flex-col items-start gap-3 md:mt-8">
               <WhatsAppButton
                 waMessage={waMessage}
                 landing={landing}
@@ -43,24 +45,27 @@ export default function Hero({
                   contato@perfiliza.com
                 </a>
               </p>
-              <p className="text-sm font-medium text-muted">
-                Sem cartão · Sem fidelidade · PIX só se fizer sentido
-              </p>
             </div>
           </div>
-          <div className="order-1 md:order-2">
-            {imageSrc ? (
-              <Image
-                src={imageSrc}
-                alt={imageAlt ?? ""}
-                width={720}
-                height={720}
-                priority
-                className="w-full h-auto rounded-2xl"
-              />
-            ) : (
-              <HeroPlaceholder />
-            )}
+          <div
+            className={`order-2 md:order-2 ${
+              imageSrc ? "" : "hidden md:block"
+            }`}
+          >
+            <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl">
+              {imageSrc ? (
+                <Image
+                  src={imageSrc}
+                  alt={imageAlt ?? ""}
+                  fill
+                  priority
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-cover"
+                />
+              ) : (
+                <HeroPlaceholder />
+              )}
+            </div>
           </div>
         </div>
       </div>
@@ -72,7 +77,7 @@ function HeroPlaceholder() {
   return (
     <div
       aria-hidden="true"
-      className="aspect-[4/5] w-full rounded-2xl border border-line bg-gradient-to-br from-[#E8F0FE] via-[#F8FAFC] to-[#E6F4EA] flex items-center justify-center"
+      className="absolute inset-0 border border-line bg-gradient-to-br from-[#E8F0FE] via-[#F8FAFC] to-[#E6F4EA] flex items-center justify-center"
     >
       <div className="text-center px-6">
         <div className="inline-flex h-16 w-16 items-center justify-center rounded-full bg-primary/10 text-primary">

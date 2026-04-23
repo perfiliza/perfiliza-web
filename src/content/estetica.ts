@@ -12,13 +12,19 @@ export const estetica: NicheContent = {
     title: "Seu Instagram vai bem. Seu Google some.",
     subtitle:
       "Clientes novas te procuram no Google antes de agendar. A Perfiliza cuida desse canal por você — primeiro mês por nossa conta.",
-    ctaText: "Quero meu diagnóstico gratuito",
+    ctaText: "Começar grátis",
   },
   painPoints: [
-    { icon: "📱", text: "Meu Instagram bomba, meu Google some." },
-    { icon: "📸", text: "Foto boa fica no Instagram, nunca no Google." },
-    { icon: "💬", text: "Não sei responder review sobre dor de procedimento." },
-    { icon: "🗺️", text: "Sumi do mapa depois da última atualização do Google." },
+    { icon: "smartphone", text: "Meu Instagram bomba, meu Google some." },
+    { icon: "camera", text: "Foto boa fica no Instagram, nunca no Google." },
+    {
+      icon: "chat",
+      text: "Não sei responder review sobre dor de procedimento.",
+    },
+    {
+      icon: "map",
+      text: "Sumi do mapa depois da última atualização do Google.",
+    },
   ],
   gbpIntro:
     "Cliente de estética pesquisa no Google antes de confiar. A gente faz seu perfil estar no lugar certo, com a foto certa, na hora certa.",
@@ -37,30 +43,13 @@ export const estetica: NicheContent = {
       "Feriados, férias coletivas, agendas de véspera de festa — atualizados antes.",
     reservas: "Link direto pra sua agenda online ou WhatsApp.",
     reviews:
-      "100% das avaliações com resposta em até 24h, sem claim médico.",
+      "100% das avaliações respondidas, sem claim médico.",
   },
   whereText: {
     google:
       "Antes de agendar harmonização, limpeza de pele ou laser, as clientes abrem o Google. Se o seu perfil estiver parado, elas vão pra concorrente.",
     ai: "A IA recomenda clínica estética quando alguém pergunta “onde fazer botox em [bairro]”. O Growth faz você entrar nessas respostas.",
   },
-  proofStats: [
-    {
-      value: "+70%",
-      label:
-        "Em pedidos de rota para a clínica, em 60 dias com gestão consistente.",
-    },
-    {
-      value: "+20–40",
-      label:
-        "Avaliações novas por trimestre combinando pedido no atendimento e placa na recepção.",
-    },
-    {
-      value: "5% → 55%",
-      label:
-        "Visibilidade em IA para “melhor clínica de estética em [bairro]”, em 90 dias no Growth.",
-    },
-  ],
   faqExtra: [
     {
       q: "Podem subir foto antes/depois?",

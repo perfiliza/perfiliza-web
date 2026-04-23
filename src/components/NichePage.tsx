@@ -1,4 +1,5 @@
 import type { NicheContent } from "@/types/content";
+import SiteHeader from "./SiteHeader";
 import Hero from "./Hero";
 import TrustBar from "./TrustBar";
 import PainPoints from "./PainPoints";
@@ -12,7 +13,7 @@ import FAQ from "./FAQ";
 import FinalCTA from "./FinalCTA";
 import Footer from "./Footer";
 import StickyMobileCTA from "./StickyMobileCTA";
-import { faqCommon, PROOF_DISCLAIMER } from "@/content/_shared";
+import { faqCommon } from "@/content/_shared";
 
 interface Props {
   content: NicheContent;
@@ -26,7 +27,6 @@ export default function NichePage({ content }: Props) {
     gbpIntro,
     gbpFeatureDescriptions,
     whereText,
-    proofStats,
     faqExtra,
     nicheDisclaimer,
     waMessages,
@@ -35,6 +35,7 @@ export default function NichePage({ content }: Props) {
 
   return (
     <>
+      <SiteHeader waMessage={waMessages.hero} landing={key} />
       <main>
         <Hero
           title={hero.title}
@@ -53,7 +54,7 @@ export default function NichePage({ content }: Props) {
         <WhereTheyFindYou googleText={whereText.google} aiText={whereText.ai} />
         <Pricing waMessage={waMessages.precos} landing={key} />
         <VideoSection videoUrl={videoUrl} />
-        <ProofSection stats={proofStats} disclaimer={PROOF_DISCLAIMER} />
+        <ProofSection />
         <FAQ items={[...faqCommon, ...faqExtra]} />
         <FinalCTA waMessage={waMessages.cta_final} landing={key} />
       </main>

@@ -12,8 +12,8 @@ export default function NicheChooser({
 }: Props) {
   return (
     <section className="bg-surface">
-      <div className="mx-auto max-w-6xl px-6 py-14 md:py-16">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-ink md:text-4xl">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+        <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           {title}
         </h2>
         <ul className="mt-8 grid gap-4 md:grid-cols-3">

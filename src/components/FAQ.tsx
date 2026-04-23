@@ -6,9 +6,9 @@ interface Props {
 
 export default function FAQ({ items }: Props) {
   return (
-    <section className="bg-surface-alt">
-      <div className="mx-auto max-w-3xl px-6 py-16 md:py-20">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-ink md:text-4xl">
+    <section id="faq" className="bg-surface-alt scroll-mt-20">
+      <div className="mx-auto max-w-3xl px-6 py-12 md:py-20">
+        <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           Perguntas que todo mundo faz.
         </h2>
         <ul className="mt-10 divide-y divide-line rounded-2xl border border-line bg-surface">

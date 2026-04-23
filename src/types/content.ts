@@ -1,6 +1,11 @@
 export type NicheKey = "home" | "odonto" | "estetica" | "restaurantes";
 
-export type CtaPosition = "hero" | "precos" | "cta_final" | "sticky_mobile";
+export type CtaPosition =
+  | "hero"
+  | "precos"
+  | "cta_final"
+  | "sticky_mobile"
+  | "header";
 
 export interface HeroData {
   title: string;
@@ -10,8 +15,21 @@ export interface HeroData {
   imageAlt?: string;
 }
 
+export type PainPointIcon =
+  | "chart-down"
+  | "trophy"
+  | "robot"
+  | "calendar"
+  | "star"
+  | "smartphone"
+  | "camera"
+  | "chat"
+  | "map"
+  | "magnifier"
+  | "tag";
+
 export interface PainPoint {
-  icon: string;
+  icon: PainPointIcon;
   text: string;
 }
 
@@ -24,11 +42,6 @@ export interface HowItWorksStep {
 export interface GbpFeature {
   title: string;
   description: string;
-}
-
-export interface ProofStat {
-  value: string;
-  label: string;
 }
 
 export interface PricingPlan {
@@ -83,7 +96,6 @@ export interface NicheContent {
     google: string;
     ai: string;
   };
-  proofStats: ProofStat[];
   faqExtra: FaqItem[];
   nicheDisclaimer: string;
   waMessages: WaMessages;

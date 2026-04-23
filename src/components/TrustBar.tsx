@@ -13,7 +13,7 @@ export default function TrustBar() {
           </li>
           <li className="flex items-center gap-2">
             <Check />
-            <span>Diagnóstico gratuito pelo WhatsApp em até 24h</span>
+            <span>Diagnóstico gratuito pelo WhatsApp</span>
           </li>
         </ul>
       </div>

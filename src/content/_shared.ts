@@ -56,5 +56,3 @@ export const nicheCards: NicheCard[] = [
   },
 ];
 
-export const PROOF_DISCLAIMER =
-  "Assim que tivermos o primeiro cliente com permissão, substituímos as projeções por depoimento real.";

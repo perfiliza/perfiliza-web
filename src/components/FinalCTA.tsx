@@ -9,14 +9,14 @@ interface Props {
 export default function FinalCTA({ waMessage, landing }: Props) {
   return (
     <section className="bg-primary">
-      <div className="mx-auto max-w-4xl px-6 py-16 text-center md:py-20">
-        <h2 className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+      <div className="mx-auto max-w-4xl px-6 py-12 text-center md:py-20">
+        <h2 className="text-3xl font-bold tracking-normal text-white md:tracking-tight md:text-4xl">
           Começa hoje, sem cartão.
         </h2>
-        <p className="mx-auto mt-4 max-w-2xl text-lg text-white/85">
-          Me chame no WhatsApp com o link do seu Google. Em até 24h eu te
-          devolvo um PDF grátis com o diagnóstico completo — problemas,
-          prioridades e o que mudaria já nas primeiras 2 semanas.
+        <p className="mx-auto mt-4 max-w-2xl text-base text-white/85 md:text-lg">
+          Me chame no WhatsApp com o link do seu Google. Eu te devolvo um PDF
+          grátis com o diagnóstico completo — problemas, prioridades e o que
+          mudaria já nas primeiras semanas.
         </p>
         <div className="mt-8 flex flex-col items-center gap-3">
           <WhatsAppButton
@@ -25,7 +25,7 @@ export default function FinalCTA({ waMessage, landing }: Props) {
             posicao="cta_final"
             size="lg"
           >
-            Mandar mensagem no WhatsApp
+            Começar grátis
           </WhatsAppButton>
           <p className="text-sm text-white/85">
             Prefere por e-mail?{" "}

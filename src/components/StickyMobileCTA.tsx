@@ -34,9 +34,9 @@ export default function StickyMobileCTA({ waMessage, landing }: Props) {
       }}
       aria-hidden={!visible}
     >
-      <div className="flex items-center justify-between gap-3 px-4 py-2">
-        <p className="text-sm font-semibold text-ink">
-          Diagnóstico grátis em 24h
+      <div className="flex min-h-[56px] items-center justify-between gap-3 px-4 py-2">
+        <p className="min-w-0 text-[0.8125rem] font-semibold leading-tight text-ink sm:text-sm">
+          Diagnóstico grátis
         </p>
         <WhatsAppButton
           waMessage={waMessage}

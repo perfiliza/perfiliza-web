@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SiteHeader from "@/components/SiteHeader";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
 import NicheChooser from "@/components/NicheChooser";
@@ -13,12 +14,11 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
-import { faqCommon, nicheCards, PROOF_DISCLAIMER } from "@/content/_shared";
+import { faqCommon, nicheCards } from "@/content/_shared";
 import {
   homeHero,
   homeMeta,
   homePainPoints,
-  homeProofStats,
   homeWaMessages,
 } from "@/content/home";
 
@@ -36,6 +36,7 @@ export const metadata: Metadata = {
 export default function HomePage() {
   return (
     <>
+      <SiteHeader waMessage={homeWaMessages.hero} landing="home" />
       <main>
         <Hero
           title={homeHero.title}
@@ -52,7 +53,7 @@ export default function HomePage() {
         <WhereTheyFindYou />
         <Pricing waMessage={homeWaMessages.precos} landing="home" />
         <VideoSection videoUrl={null} />
-        <ProofSection stats={homeProofStats} disclaimer={PROOF_DISCLAIMER} />
+        <ProofSection />
         <FAQ items={faqCommon} />
         <FinalCTA waMessage={homeWaMessages.cta_final} landing="home" />
       </main>

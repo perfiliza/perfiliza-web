@@ -1,4 +1,5 @@
 import Link from "next/link";
+import BrandLogo from "./BrandLogo";
 
 interface Props {
   nicheDisclaimer?: string;
@@ -12,29 +13,35 @@ export default function Footer({ nicheDisclaimer }: Props) {
       <div className="mx-auto max-w-6xl px-6 py-10 md:py-12">
         <div className="grid gap-8 md:grid-cols-3">
           <div>
-            <p className="text-xl font-bold text-ink">Perfiliza</p>
-            <p className="mt-2 text-sm text-muted">
+            <BrandLogo />
+            <p className="mt-3 text-sm text-muted">
               Cuidamos do seu Google.
             </p>
           </div>
           <div>
             <p className="text-sm font-semibold text-ink">Nichos atendidos</p>
-            <ul className="mt-2 space-y-1 text-sm text-muted">
+            <ul className="mt-2 text-sm text-muted">
               <li>
                 <Link
                   href="/clinicas-odontologicas"
-                  className="hover:text-ink"
+                  className="block py-1.5 hover:text-ink"
                 >
                   Clínicas odontológicas
                 </Link>
               </li>
               <li>
-                <Link href="/clinicas-esteticas" className="hover:text-ink">
+                <Link
+                  href="/clinicas-esteticas"
+                  className="block py-1.5 hover:text-ink"
+                >
                   Clínicas de estética
                 </Link>
               </li>
               <li>
-                <Link href="/restaurantes" className="hover:text-ink">
+                <Link
+                  href="/restaurantes"
+                  className="block py-1.5 hover:text-ink"
+                >
                   Restaurantes
                 </Link>
               </li>
@@ -42,22 +49,25 @@ export default function Footer({ nicheDisclaimer }: Props) {
           </div>
           <div>
             <p className="text-sm font-semibold text-ink">Legal e contato</p>
-            <ul className="mt-2 space-y-1 text-sm text-muted">
+            <ul className="mt-2 text-sm text-muted">
               <li>
-                <Link href="/privacidade" className="hover:text-ink">
+                <Link
+                  href="/privacidade"
+                  className="block py-1.5 hover:text-ink"
+                >
                   Política de privacidade
                 </Link>
               </li>
               <li>
-                <Link href="/termos" className="hover:text-ink">
+                <Link href="/termos" className="block py-1.5 hover:text-ink">
                   Termos de uso
                 </Link>
               </li>
-              <li className="pt-1">
+              <li className="pt-2">
                 LGPD: pedidos de exclusão em{" "}
                 <a
                   href="mailto:contato@perfiliza.com"
-                  className="hover:text-ink"
+                  className="inline-block py-1 hover:text-ink"
                 >
                   contato@perfiliza.com
                 </a>

@@ -12,14 +12,14 @@ export const restaurantes: NicheContent = {
     title: "“Comer perto de mim” decide quem lota o salão.",
     subtitle:
       "Quando alguém pesquisa restaurante no Google, alguém ganha a mesa. A Perfiliza faz você ser esse alguém. Primeiro mês por nossa conta.",
-    ctaText: "Quero meu diagnóstico gratuito",
+    ctaText: "Começar grátis",
   },
   painPoints: [
-    { icon: "🔎", text: "Quem pesquisa “comer perto” não me encontra." },
-    { icon: "📸", text: "Tenho foto dos anos 2010 no perfil." },
-    { icon: "💬", text: "Reviews ruins sem resposta afastam cliente novo." },
+    { icon: "magnifier", text: "Quem pesquisa “comer perto” não me encontra." },
+    { icon: "camera", text: "Tenho foto dos anos 2010 no perfil." },
+    { icon: "chat", text: "Reviews ruins sem resposta afastam cliente novo." },
     {
-      icon: "🏷️",
+      icon: "tag",
       text: "Concorrente da esquina aparece com promoção; eu não.",
     },
   ],
@@ -41,30 +41,13 @@ export const restaurantes: NicheContent = {
     reservas:
       "Link direto para reserva online, iFood ou WhatsApp.",
     reviews:
-      "100% das avaliações com resposta em até 24h, incluindo as críticas.",
+      "100% das avaliações respondidas, incluindo as críticas.",
   },
   whereText: {
     google:
       "“Comer perto de mim”, “restaurante no [bairro]”, “rodízio”, “almoço executivo” — são as buscas que enchem mesa. A Perfiliza deixa seu perfil pronto pra cada uma.",
     ai: "A IA recomenda restaurante o tempo todo. “Qual melhor [tipo de cozinha] no [bairro]?” O Growth coloca você nessa resposta.",
   },
-  proofStats: [
-    {
-      value: "+80%",
-      label:
-        "Em pedidos de rota, em 60 dias com gestão consistente em bairros de alta circulação.",
-    },
-    {
-      value: "+30–60",
-      label:
-        "Avaliações novas por trimestre combinando placa na mesa e pedido educado ao final do atendimento.",
-    },
-    {
-      value: "10% → 65%",
-      label:
-        "Aparições em IA para “melhor [tipo de cozinha] em [bairro]”, em 90 dias no Growth.",
-    },
-  ],
   faqExtra: [
     {
       q: "Vocês atualizam cardápio e preço no Google?",

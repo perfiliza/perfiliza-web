@@ -1,9 +1,4 @@
-import type {
-  HeroData,
-  PainPoint,
-  ProofStat,
-  WaMessages,
-} from "@/types/content";
+import type { HeroData, PainPoint, WaMessages } from "@/types/content";
 
 export const homeMeta = {
   title: "Perfiliza — seu Google Meu Negócio cuidado toda semana",
@@ -16,38 +11,21 @@ export const homeHero: HeroData = {
   title: "Onde seu cliente procura, você precisa aparecer.",
   subtitle:
     "Cuidamos do seu Google Meu Negócio toda semana e fazemos a IA te recomendar. Primeiro mês por nossa conta.",
-  ctaText: "Quero meu diagnóstico gratuito",
+  ctaText: "Começar grátis",
 };
 
 export const homePainPoints: PainPoint[] = [
   {
-    icon: "📉",
+    icon: "chart-down",
     text: "Meu perfil no Google está parado há meses.",
   },
   {
-    icon: "🥈",
+    icon: "trophy",
     text: "Meu concorrente aparece antes de mim.",
   },
   {
-    icon: "🤖",
+    icon: "robot",
     text: "Não sei se a IA me menciona quando alguém pergunta pelo meu serviço.",
-  },
-];
-
-export const homeProofStats: ProofStat[] = [
-  {
-    value: "+50–120%",
-    label: "Cliques para rota no perfil em 60 dias de operação contínua.",
-  },
-  {
-    value: "+15–40",
-    label:
-      "Avaliações novas por trimestre combinando placa no balcão e pedido no atendimento.",
-  },
-  {
-    value: "10–20% → 50–70%",
-    label:
-      "Aparições em ChatGPT, Gemini e Perplexity em 90 dias (apenas Growth).",
   },
 ];
 

@@ -11,8 +11,8 @@ export default function VideoSection({
 
   return (
     <section className="bg-surface-alt">
-      <div className="mx-auto max-w-4xl px-6 py-16 md:py-20">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-ink md:text-4xl">
+      <div className="mx-auto max-w-4xl px-6 py-12 md:py-20">
+        <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           {title}
         </h2>
         <div className="mt-8 aspect-video overflow-hidden rounded-2xl border border-line bg-ink">

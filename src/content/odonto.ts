@@ -12,14 +12,17 @@ export const odonto: NicheContent = {
     title: "Pacientes procuram dentista no Google toda hora.",
     subtitle:
       "A gente cuida do seu perfil toda semana. Primeiro mês por nossa conta. Depois, R$ 197/mês via PIX — sem fidelidade.",
-    ctaText: "Quero meu diagnóstico gratuito",
+    ctaText: "Começar grátis",
   },
   painPoints: [
-    { icon: "📅", text: "Minha agenda só enche por indicação." },
-    { icon: "⭐", text: "Tenho avaliações antigas sem resposta e fico travado." },
-    { icon: "🥈", text: "Meu concorrente aparece antes no Maps." },
+    { icon: "calendar", text: "Minha agenda só enche por indicação." },
     {
-      icon: "🤖",
+      icon: "star",
+      text: "Tenho avaliações antigas sem resposta e fico travado.",
+    },
+    { icon: "trophy", text: "Meu concorrente aparece antes no Maps." },
+    {
+      icon: "robot",
       text: "Não sei se o ChatGPT me menciona quando alguém pesquisa.",
     },
   ],
@@ -41,30 +44,13 @@ export const odonto: NicheContent = {
     reservas:
       "Link direto pra sua agenda online ou WhatsApp clínico.",
     reviews:
-      "100% das avaliações com resposta em até 24h, em conformidade com o CRO.",
+      "100% das avaliações respondidas, em conformidade com o CRO.",
   },
   whereText: {
     google:
       "9 em cada 10 pacientes começam procurando “dentista perto de mim” ou “ortodontia em [bairro]” no Google. A Perfiliza faz seu perfil aparecer — e aparecer bem.",
     ai: "Cada vez mais gente pergunta “qual melhor dentista no [bairro]?” pra IA. Se ela não te cita, cita seu concorrente. O Growth resolve isso.",
   },
-  proofStats: [
-    {
-      value: "+60%",
-      label:
-        "Em cliques para rota no perfil do Google, em 60 dias de operação contínua.",
-    },
-    {
-      value: "+15–30",
-      label:
-        "Avaliações novas por trimestre quando a clínica pede review no atendimento e coloca placa na recepção.",
-    },
-    {
-      value: "10% → 60%",
-      label:
-        "Aparições em ChatGPT, Gemini e Perplexity para “melhor dentista em [bairro]”, em 90 dias no Growth.",
-    },
-  ],
   faqExtra: [
     {
       q: "Vocês respeitam as diretrizes do CFO e CRO nas respostas?",

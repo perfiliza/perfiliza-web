@@ -9,8 +9,8 @@ export default function WhereTheyFindYou({
 }: Props) {
   return (
     <section className="bg-surface-alt">
-      <div className="mx-auto max-w-6xl px-6 py-16 md:py-20">
-        <h2 className="text-center text-3xl font-bold tracking-tight text-ink md:text-4xl">
+      <div className="mx-auto max-w-6xl px-6 py-12 md:py-20">
+        <h2 className="text-center text-3xl font-bold tracking-normal text-ink md:tracking-tight md:text-4xl">
           Seu cliente procura em dois lugares.
           <br className="hidden md:inline" /> A gente cuida dos dois.
         </h2>
