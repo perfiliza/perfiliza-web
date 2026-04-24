@@ -48,6 +48,8 @@ export default function WhatsAppButton({
       href={fallbackHref}
       target="_blank"
       rel="noopener noreferrer"
+      data-cta="whatsapp"
+      data-cta-position={posicao}
       onClick={(e) => {
         const utms =
           typeof window !== "undefined"
