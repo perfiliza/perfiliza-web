@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Fraunces } from "next/font/google";
-import GoogleAnalytics from "@/components/analytics/GoogleAnalytics";
-import MetaPixel from "@/components/analytics/MetaPixel";
+import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import RevealMount from "@/components/visual/RevealMount";
 import JsonLd from "@/components/seo/JsonLd";
 import {
@@ -83,8 +82,7 @@ export default function RootLayout({
         <RevealMount />
         <JsonLd id="ld-organization" data={organizationSchema()} />
         <JsonLd id="ld-website" data={websiteSchema()} />
-        <GoogleAnalytics />
-        <MetaPixel />
+        <GoogleTagManager />
       </body>
     </html>
   );
