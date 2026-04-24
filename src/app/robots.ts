@@ -1,13 +1,20 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo/constants";
 
 export default function robots(): MetadataRoute.Robots {
   return {
-    rules: {
-      userAgent: "*",
-      allow: "/",
-      disallow: ["/api/"],
-    },
-    sitemap: "https://perfiliza.com/sitemap.xml",
-    host: "https://perfiliza.com",
+    rules: [
+      {
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/"],
+      },
+      {
+        userAgent: "Googlebot-Image",
+        allow: "/",
+      },
+    ],
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

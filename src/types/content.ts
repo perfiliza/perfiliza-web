@@ -87,6 +87,7 @@ export interface NicheContent {
     title: string;
     description: string;
     path: string;
+    keywords?: string[];
   };
   hero: HeroData;
   painPoints: PainPoint[];

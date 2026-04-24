@@ -7,6 +7,16 @@ export const restaurantes: NicheContent = {
     description:
       "“Comer perto de mim” decide quem lota o salão. A Perfiliza cuida do seu Google Meu Negócio por 30 dias — primeiro mês por nossa conta.",
     path: "/restaurantes",
+    keywords: [
+      "google meu negócio restaurante",
+      "comer perto de mim",
+      "SEO local restaurante",
+      "gestão perfil google restaurante",
+      "marketing para restaurante",
+      "restaurante no google maps",
+      "cardápio no google",
+      "avaliações google restaurante",
+    ],
   },
   hero: {
     title: "“Comer perto de mim” decide quem lota o salão.",

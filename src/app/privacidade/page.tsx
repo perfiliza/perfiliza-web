@@ -1,15 +1,51 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schemas";
+
+const PAGE_PATH = "/privacidade";
+const PAGE_TITLE = "Política de Privacidade";
+const PAGE_DESCRIPTION =
+  "Como a Perfiliza coleta, usa e protege os dados dos seus visitantes, leads e clientes, em conformidade com a LGPD.";
 
 export const metadata: Metadata = {
-  title: "Política de Privacidade",
-  description:
-    "Como a Perfiliza coleta, usa e protege os dados dos seus visitantes, leads e clientes, em conformidade com a LGPD.",
-  alternates: { canonical: "/privacidade" },
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: PAGE_PATH },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: PAGE_PATH,
+    type: "article",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function PrivacidadePage() {
+  const breadcrumb = breadcrumbSchema(
+    [
+      { name: "Início", path: "/" },
+      { name: PAGE_TITLE, path: PAGE_PATH },
+    ],
+    PAGE_PATH
+  );
+  const ldData = [
+    webPageSchema({
+      title: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      path: PAGE_PATH,
+      breadcrumbId: `${breadcrumb["@id"]}`,
+    }),
+    breadcrumb,
+  ];
   return (
+    <>
     <LegalLayout title="Política de Privacidade" updatedAt="23 de abril de 2026">
       <section>
         <p>
@@ -265,5 +301,7 @@ export default function PrivacidadePage() {
         </p>
       </section>
     </LegalLayout>
+    <JsonLd id="ld-privacidade" data={ldData} />
+    </>
   );
 }

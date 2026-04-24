@@ -7,6 +7,16 @@ export const estetica: NicheContent = {
     description:
       "Seu Instagram vai bem. Seu Google some. A Perfiliza cuida do seu Google Meu Negócio por 30 dias — primeiro mês por nossa conta.",
     path: "/clinicas-esteticas",
+    keywords: [
+      "google meu negócio clínica estética",
+      "SEO local estética",
+      "marketing clínica estética",
+      "perfil google clínica",
+      "clínica de estética",
+      "agendamento clínica estética",
+      "harmonização facial google",
+      "botox perto de mim",
+    ],
   },
   hero: {
     title: "Seu Instagram vai bem. Seu Google some.",

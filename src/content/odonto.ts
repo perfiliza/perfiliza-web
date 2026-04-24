@@ -7,6 +7,16 @@ export const odonto: NicheContent = {
     description:
       "Pacientes procuram dentista no Google toda hora. A Perfiliza cuida do seu Google Meu Negócio por 30 dias — primeiro mês por nossa conta.",
     path: "/clinicas-odontologicas",
+    keywords: [
+      "google meu negócio dentista",
+      "SEO local odontologia",
+      "marketing odontológico",
+      "gestão perfil google dentista",
+      "dentista perto de mim",
+      "clínica odontológica",
+      "ortodontia no google",
+      "ranking dentista google",
+    ],
   },
   hero: {
     title: "Pacientes procuram dentista no Google toda hora.",
