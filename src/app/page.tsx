@@ -14,6 +14,12 @@ import FAQ from "@/components/FAQ";
 import FinalCTA from "@/components/FinalCTA";
 import Footer from "@/components/Footer";
 import StickyMobileCTA from "@/components/StickyMobileCTA";
+import JsonLd from "@/components/seo/JsonLd";
+import {
+  faqPageSchema,
+  serviceSchema,
+  webPageSchema,
+} from "@/lib/seo/schemas";
 import { faqCommon, nicheCards } from "@/content/_shared";
 import {
   homeHero,
@@ -25,15 +31,38 @@ import {
 export const metadata: Metadata = {
   title: homeMeta.title,
   description: homeMeta.description,
+  keywords: homeMeta.keywords,
   alternates: { canonical: homeMeta.path },
   openGraph: {
     title: homeMeta.title,
     description: homeMeta.description,
     url: homeMeta.path,
+    type: "website",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: homeMeta.title,
+    description: homeMeta.description,
   },
 };
 
 export default function HomePage() {
+  const ldData = [
+    webPageSchema({
+      title: homeMeta.title,
+      description: homeMeta.description,
+      path: homeMeta.path,
+    }),
+    serviceSchema({
+      name: "Gestão de Google Meu Negócio + GEO",
+      description:
+        "Gestão semanal do seu Google Meu Negócio e trabalho de GEO para você ser recomendado por ChatGPT, Gemini e Perplexity.",
+      path: homeMeta.path,
+    }),
+    faqPageSchema(faqCommon, homeMeta.path),
+  ];
+
   return (
     <>
       <SiteHeader />
@@ -62,6 +91,7 @@ export default function HomePage() {
         waMessage={homeWaMessages.sticky_mobile}
         landing="home"
       />
+      <JsonLd id="ld-home" data={ldData} />
     </>
   );
 }

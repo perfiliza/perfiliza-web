@@ -1,43 +1,44 @@
 import type { MetadataRoute } from "next";
+import { SITE_URL } from "@/lib/seo/constants";
 
-const BASE_URL = "https://perfiliza.com";
+const LANDING_MODIFIED = new Date("2026-04-24");
+const LEGAL_MODIFIED = new Date("2026-04-23");
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   return [
     {
-      url: `${BASE_URL}/`,
-      lastModified: now,
+      url: `${SITE_URL}/`,
+      lastModified: LANDING_MODIFIED,
       changeFrequency: "weekly",
       priority: 1,
     },
     {
-      url: `${BASE_URL}/clinicas-odontologicas`,
-      lastModified: now,
+      url: `${SITE_URL}/clinicas-odontologicas`,
+      lastModified: LANDING_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/clinicas-esteticas`,
-      lastModified: now,
+      url: `${SITE_URL}/clinicas-esteticas`,
+      lastModified: LANDING_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/restaurantes`,
-      lastModified: now,
+      url: `${SITE_URL}/restaurantes`,
+      lastModified: LANDING_MODIFIED,
       changeFrequency: "weekly",
       priority: 0.9,
     },
     {
-      url: `${BASE_URL}/privacidade`,
-      lastModified: now,
+      url: `${SITE_URL}/privacidade`,
+      lastModified: LEGAL_MODIFIED,
       changeFrequency: "yearly",
       priority: 0.3,
     },
     {
-      url: `${BASE_URL}/termos`,
-      lastModified: now,
+      url: `${SITE_URL}/termos`,
+      lastModified: LEGAL_MODIFIED,
       changeFrequency: "yearly",
       priority: 0.3,
     },

@@ -5,6 +5,18 @@ export const homeMeta = {
   description:
     "Cuidamos do seu Google Meu Negócio toda semana e ajudamos a IA a te recomendar. Primeiro mês por nossa conta, sem fidelidade.",
   path: "/",
+  keywords: [
+    "google meu negócio",
+    "gestão google meu negócio",
+    "GMB",
+    "perfil do google",
+    "SEO local",
+    "google maps",
+    "GEO",
+    "AI search",
+    "recomendação no ChatGPT",
+    "gestão de perfil google",
+  ],
 };
 
 export const homeHero: HeroData = {

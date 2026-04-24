@@ -1,15 +1,51 @@
 import type { Metadata } from "next";
 import LegalLayout from "@/components/LegalLayout";
+import JsonLd from "@/components/seo/JsonLd";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo/schemas";
+
+const PAGE_PATH = "/termos";
+const PAGE_TITLE = "Termos de Uso";
+const PAGE_DESCRIPTION =
+  "Condições de contratação, execução, cobrança e cancelamento do serviço Perfiliza.";
 
 export const metadata: Metadata = {
-  title: "Termos de Uso",
-  description:
-    "Condições de contratação, execução, cobrança e cancelamento do serviço Perfiliza.",
-  alternates: { canonical: "/termos" },
+  title: PAGE_TITLE,
+  description: PAGE_DESCRIPTION,
+  alternates: { canonical: PAGE_PATH },
+  openGraph: {
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+    url: PAGE_PATH,
+    type: "article",
+    locale: "pt_BR",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: PAGE_TITLE,
+    description: PAGE_DESCRIPTION,
+  },
+  robots: { index: true, follow: true },
 };
 
 export default function TermosPage() {
+  const breadcrumb = breadcrumbSchema(
+    [
+      { name: "Início", path: "/" },
+      { name: PAGE_TITLE, path: PAGE_PATH },
+    ],
+    PAGE_PATH
+  );
+  const ldData = [
+    webPageSchema({
+      title: PAGE_TITLE,
+      description: PAGE_DESCRIPTION,
+      path: PAGE_PATH,
+      breadcrumbId: `${breadcrumb["@id"]}`,
+    }),
+    breadcrumb,
+  ];
   return (
+    <>
     <LegalLayout title="Termos de Uso" updatedAt="23 de abril de 2026">
       <section>
         <p>
@@ -272,5 +308,7 @@ export default function TermosPage() {
         </p>
       </section>
     </LegalLayout>
+    <JsonLd id="ld-termos" data={ldData} />
+    </>
   );
 }
