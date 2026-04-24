@@ -59,6 +59,8 @@ export default function Footer({ nicheDisclaimer }: Props) {
                   href={footerWaUrl}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cta="whatsapp"
+                  data-cta-position="footer"
                   className="block py-1.5 hover:text-ink"
                 >
                   Falar no WhatsApp

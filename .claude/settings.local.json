@@ -2,7 +2,31 @@
   "permissions": {
     "allow": [
       "Bash(npm run *)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git checkout *)",
+      "Bash(git commit *)",
+      "Bash(git merge *)",
+      "Read(//c/Users/rsgon/Documents/PERFILIZA/**)",
+      "Bash(npx tsc *)",
+      "Bash(npx eslint *)",
+      "Bash(git *)",
+      "Bash(C:/Users/rsgon/Documents/perfiliza-web/node_modules/.bin/tailwindcss --help)",
+      "Bash(npm start *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w 'HTTP %{http_code} · %{size_download} bytes · %{time_total}s\\\\n' http://localhost:3000__TRACKED_VAR__)",
+      "Bash(curl -s \"http://localhost:3000/\" echo \"=== Hero h1 ===\")",
+      "Read(//tmp/**)",
+      "Bash(taskkill //F //FI \"WINDOWTITLE eq *next*\")",
+      "Bash(netstat -ano)",
+      "Bash(taskkill *)",
+      "Bash(xargs -I {} basename {})",
+      "Bash(xargs grep *)",
+      "PowerShell(ls *)",
+      "PowerShell(head *)",
+      "PowerShell(ls \"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\" | Where-Object {$_.Name -match \"script|layout|metadata\"})",
+      "PowerShell(grep *)"
     ]
   }
 }

@@ -5,7 +5,8 @@ export type CtaPosition =
   | "precos"
   | "cta_final"
   | "sticky_mobile"
-  | "header";
+  | "header"
+  | "footer";
 
 export interface HeroData {
   title: string;
