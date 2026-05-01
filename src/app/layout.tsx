@@ -1,8 +1,6 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Fraunces } from "next/font/google";
+import { Geist, Lora } from "next/font/google";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
-import RevealMount from "@/components/visual/RevealMount";
-import JsonLd from "@/components/seo/JsonLd";
 import {
   BRAND_DESCRIPTION,
   BRAND_NAME,
@@ -10,7 +8,6 @@ import {
   SITE_LOCALE,
   SITE_URL,
 } from "@/lib/seo/constants";
-import { organizationSchema, websiteSchema } from "@/lib/seo/schemas";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -18,17 +15,17 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const lora = Lora({
+  variable: "--font-lora",
   subsets: ["latin"],
   display: "swap",
-  axes: ["opsz"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BRAND_NAME} — seu Google Meu Negócio cuidado toda semana`,
+    default: `${BRAND_NAME} — Perfil da Empresa no Google que traz cliente`,
     template: `%s · ${BRAND_NAME}`,
   },
   description: BRAND_DESCRIPTION,
@@ -76,12 +73,23 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="pt-BR" className={`${geistSans.variable} ${fraunces.variable} h-full antialiased`} suppressHydrationWarning>
-      <body className="min-h-full flex flex-col bg-surface text-ink font-sans">
+    <html
+      lang="pt-BR"
+      className={`${geistSans.variable} ${lora.variable} h-full antialiased`}
+      suppressHydrationWarning
+    >
+      <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
         {children}
-        <RevealMount />
-        <JsonLd id="ld-organization" data={organizationSchema()} />
-        <JsonLd id="ld-website" data={websiteSchema()} />
+        <footer className="mt-auto border-t border-line bg-surface">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 py-8 flex flex-col sm:flex-row gap-3 sm:items-center sm:justify-between text-sm text-muted">
+            <p>© {new Date().getFullYear()} {BRAND_NAME}. [A DEFINIR — CNPJ/endereço]</p>
+            <nav>
+              <a href="/privacidade" className="hover:text-ink underline-offset-2 hover:underline">
+                Política de privacidade
+              </a>
+            </nav>
+          </div>
+        </footer>
         <GoogleTagManager />
       </body>
     </html>

@@ -40,3 +40,12 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# playwright (MCP debug artifacts)
+.playwright-mcp/
+
+# design-reference: comitamos tokens.md, ignoramos screenshots binários
+design-reference/*.png
+design-reference/*.jpg
+design-reference/*.jpeg
+design-reference/*.webp
