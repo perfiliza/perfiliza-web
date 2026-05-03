@@ -9,21 +9,25 @@ interface QA {
 
 const faq: QA[] = [
   {
-    pergunta: "[A DEFINIR — quanto demora?]",
-    resposta: "[A DEFINIR — resposta sobre prazo]",
-  },
-  {
-    pergunta: "[A DEFINIR — posso pagar antes?]",
+    pergunta: "Em quanto tempo fica pronto?",
     resposta:
-      "[A DEFINIR — resposta sobre pagamento via Mercado Pago só após entrega]",
+      "De 7 a 15 dias úteis depois que você me passa todas as informações. Recuperação de perfil suspenso pode levar mais por causa do tempo de resposta do Google — te aviso prazo realista no diagnóstico.",
   },
   {
-    pergunta: "[A DEFINIR — e se não der certo?]",
-    resposta: "[A DEFINIR — resposta sobre garantia]",
+    pergunta: "Preciso pagar antes de começar?",
+    resposta:
+      "Não. Você só paga depois que o serviço está entregue, via link Mercado Pago (PIX à vista ou cartão em até 12x). Se eu não entregar o que combinamos, você não paga nada.",
   },
   {
-    pergunta: "[A DEFINIR — atende minha cidade?]",
-    resposta: "[A DEFINIR — resposta sobre atendimento remoto / nacional]",
+    pergunta:
+      "Você garante que meu perfil vai aparecer em primeiro lugar?",
+    resposta:
+      "Não. Quem garante posição no Google está mentindo — a posição depende de muitos fatores que ninguém controla. O que eu garanto é entregar exatamente o escopo combinado, com qualidade técnica que o Google espera.",
+  },
+  {
+    pergunta: "Vocês atendem minha cidade?",
+    resposta:
+      "Sim. O serviço é 100% remoto, feito pelo painel do Google Business Profile. Atendo PMEs em todo o Brasil, de qualquer porte e segmento. A conversa toda acontece pelo WhatsApp.",
   },
 ];
 
@@ -36,7 +40,7 @@ export default function FaqCta() {
       <div className="mx-auto max-w-3xl flex flex-col gap-12">
         <div className="flex flex-col gap-6">
           <h2 className="font-display text-3xl sm:text-4xl text-ink">
-            Perguntas frequentes
+            Dúvidas que todo dono de PME tem
           </h2>
           <ul className="flex flex-col gap-3">
             {faq.map((qa, i) => (
@@ -58,18 +62,22 @@ export default function FaqCta() {
           </ul>
         </div>
         <div className="flex flex-col items-center gap-4 text-center">
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary">
+            Pronto pra começar?
+          </p>
           <h3 className="font-display text-2xl sm:text-3xl text-ink">
-            [A DEFINIR — chamada do CTA final]
+            Manda uma mensagem. A gente conversa em 5 minutos e você decide se
+            faz sentido.
           </h3>
           <p className="text-base text-muted max-w-xl">
-            [A DEFINIR — reforço final antes do CTA]
+            Sem compromisso, sem cobrança pra entender o que você precisa.
           </p>
           <WhatsAppCTA
             section="cta_final"
             service="geral"
-            message="[A DEFINIR — mensagem geral CTA final]"
+            message="Olá! Vim do site da Perfiliza e quero conversar sobre o meu perfil no Google."
           >
-            Falar no WhatsApp
+            Falar agora no WhatsApp
           </WhatsAppCTA>
         </div>
       </div>
