@@ -12,6 +12,27 @@ import {
 import { buildWaUrl } from "@/lib/whatsapp";
 import "./globals.css";
 
+function MapPinHouseIcon() {
+  return (
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-7 w-7 sm:h-8 sm:w-8 text-primary"
+    >
+      <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
+      <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
+      <path d="M18 22v-3" />
+      <circle cx="10" cy="10" r="3" />
+    </svg>
+  );
+}
+
 function formatWhatsAppDisplay(raw: string | undefined): string {
   if (!raw) return "WhatsApp";
   const digits = raw.replace(/\D/g, "");
@@ -19,7 +40,7 @@ function formatWhatsAppDisplay(raw: string | undefined): string {
     const ddd = digits.slice(2, 4);
     const part1 = digits.slice(4, 9);
     const part2 = digits.slice(9, 13);
-    return `+55 (${ddd}) ${part1}-${part2}`;
+    return `${ddd} ${part1}-${part2}`;
   }
   return "WhatsApp";
 }
@@ -94,6 +115,20 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
+        <header className="border-b border-line bg-bg">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4 sm:py-5">
+            <a
+              href="/"
+              aria-label={`${BRAND_NAME} — página inicial`}
+              className="inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-md"
+            >
+              <MapPinHouseIcon />
+              <span className="font-display text-2xl sm:text-3xl text-ink">
+                {BRAND_NAME}
+              </span>
+            </a>
+          </div>
+        </header>
         {children}
         <footer className="mt-auto border-t border-line bg-surface">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-12 text-sm text-muted">

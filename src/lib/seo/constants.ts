@@ -8,4 +8,4 @@ export const BRAND_DESCRIPTION =
 export const BRAND_EMAIL = "contato@perfiliza.com";
 export const SITE_LOCALE = "pt_BR";
 export const SITE_LANGUAGE = "pt-BR";
-export const BRAND_THEME_COLOR = "#1A73E8";
+export const BRAND_THEME_COLOR = "#4A5A3A";
