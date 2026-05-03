@@ -26,7 +26,18 @@
       "PowerShell(ls *)",
       "PowerShell(head *)",
       "PowerShell(ls \"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\\\\node_modules\\\\next\\\\dist\\\\docs\\\\01-app\" | Where-Object {$_.Name -match \"script|layout|metadata\"})",
-      "PowerShell(grep *)"
+      "PowerShell(grep *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_evaluate",
+      "mcp__playwright__browser_close",
+      "Bash(kill %1)",
+      "Bash(pkill -f \"next dev\")",
+      "Bash(tasklist)",
+      "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\" -Directory)",
+      "Bash(Select-Object Name)",
+      "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\\\\public\\\\images\\\\hero.webp\"\\); \"$\\($img.Width\\)x$\\($img.Height\\)\"; $img.Dispose\\(\\))",
+      "Bash(node *)"
     ]
   }
 }
