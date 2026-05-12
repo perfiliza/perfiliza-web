@@ -6,9 +6,11 @@ import {
   SITE_LANGUAGE,
 } from "@/lib/seo/constants";
 
+export const dynamic = "force-static";
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: `${BRAND_NAME} — seu Google Meu Negócio cuidado toda semana`,
+    name: `${BRAND_NAME} — Veja seu site pronto antes de pagar`,
     short_name: BRAND_NAME,
     description: BRAND_DESCRIPTION,
     start_url: "/",

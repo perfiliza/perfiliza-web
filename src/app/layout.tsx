@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Lora } from "next/font/google";
 import Link from "next/link";
-import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import {
   BRAND_DESCRIPTION,
   BRAND_EMAIL,
@@ -159,8 +158,6 @@ export default function RootLayout({
                   href={buildWaUrl("Olá! Vim do site da Perfiliza.")}
                   target="_blank"
                   rel="noopener noreferrer"
-                  data-cta="whatsapp"
-                  data-cta-section="footer"
                   className="hover:text-ink hover:underline underline-offset-2"
                 >
                   WhatsApp: {formatWhatsAppDisplay(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)}
@@ -186,7 +183,6 @@ export default function RootLayout({
             </p>
           </div>
         </footer>
-        <GoogleTagManager />
       </body>
     </html>
   );

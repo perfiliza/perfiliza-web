@@ -53,7 +53,15 @@
       "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__01asqv8._.css\")",
       "PowerShell(Stop-Process *)",
       "PowerShell(Get-NetTCPConnection *)",
-      "Bash(grep -q \"Ready in\" \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\bl7k1dz3i.output\")"
+      "Bash(grep -q \"Ready in\" \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\bl7k1dz3i.output\")",
+      "Bash(rm -rf src/components/analytics src/lib/gtm.ts src/types/gtm.d.ts)",
+      "Bash(ls src/types)",
+      "Bash(npx serve *)",
+      "Bash(curl -s -o /dev/null -w \"/: %{http_code}\\\\n\" http://localhost:3000/)",
+      "Bash(curl -s -o /dev/null -w \"/privacidade/: %{http_code}\\\\n\" http://localhost:3000/privacidade/)",
+      "Bash(curl -s -o /dev/null -w \"/termos/: %{http_code}\\\\n\" http://localhost:3000/termos/)",
+      "Bash(curl -s -o /dev/null -w \"/sitemap.xml: %{http_code}\\\\n\" http://localhost:3000/sitemap.xml)",
+      "Bash(curl -s -o /dev/null -w \"/robots.txt: %{http_code}\\\\n\" http://localhost:3000/robots.txt)"
     ]
   }
 }
