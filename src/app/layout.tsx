@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Lora } from "next/font/google";
+import Link from "next/link";
 import GoogleTagManager from "@/components/analytics/GoogleTagManager";
 import {
   BRAND_DESCRIPTION,
@@ -12,7 +13,7 @@ import {
 import { buildWaUrl } from "@/lib/whatsapp";
 import "./globals.css";
 
-function MapPinHouseIcon() {
+function MapPinHouseIcon({ className }: { className?: string }) {
   return (
     <svg
       aria-hidden="true"
@@ -23,7 +24,7 @@ function MapPinHouseIcon() {
       strokeWidth={2}
       strokeLinecap="round"
       strokeLinejoin="round"
-      className="h-7 w-7 sm:h-8 sm:w-8 text-primary"
+      className={className ?? "h-7 w-7 sm:h-8 sm:w-8 text-primary"}
     >
       <path d="M15 22a1 1 0 0 1-1-1v-4a1 1 0 0 1 .445-.832l3-2a1 1 0 0 1 1.11 0l3 2A1 1 0 0 1 22 17v4a1 1 0 0 1-1 1z" />
       <path d="M18 10a8 8 0 0 0-16 0c0 4.993 5.539 10.193 7.399 11.799a1 1 0 0 0 .601.2" />
@@ -60,7 +61,7 @@ const lora = Lora({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${BRAND_NAME} — Perfil no Google que traz cliente de verdade`,
+    default: `${BRAND_NAME} — Veja seu site pronto antes de pagar`,
     template: `%s · ${BRAND_NAME}`,
   },
   description: BRAND_DESCRIPTION,
@@ -71,9 +72,9 @@ export const metadata: Metadata = {
   category: "business",
   formatDetection: { email: false, address: false, telephone: false },
   openGraph: {
-    title: `${BRAND_NAME} — Seu Perfil no Google trabalhando pra você`,
+    title: `${BRAND_NAME} — Veja seu site pronto antes de pagar`,
     description:
-      "A gente cuida do seu Perfil da Empresa no Google pra você aparecer quando o cliente procura. Você só paga depois que entrega.",
+      "Criamos o site da sua empresa, mostramos funcionando e você decide. R$ 347 pelo ano todo, hospedagem incluída. Sem mensalidade, sem fidelização.",
     url: SITE_URL,
     siteName: BRAND_NAME,
     locale: SITE_LOCALE,
@@ -117,7 +118,7 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col bg-bg text-ink font-sans">
         <header className="border-b border-line bg-bg">
           <div className="mx-auto max-w-6xl px-4 sm:px-6 py-4 sm:py-5">
-            <a
+            <Link
               href="/"
               aria-label={`${BRAND_NAME} — página inicial`}
               className="inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-md"
@@ -126,45 +127,26 @@ export default function RootLayout({
               <span className="font-display text-2xl sm:text-3xl text-ink">
                 {BRAND_NAME}
               </span>
-            </a>
+            </Link>
           </div>
         </header>
         {children}
-        <footer className="mt-auto border-t border-line bg-surface">
-          <div className="mx-auto max-w-6xl px-4 sm:px-6 py-10 sm:py-12 text-sm text-muted">
+        <footer className="mt-auto border-t border-line">
+          <div className="mx-auto max-w-6xl px-6 py-12 text-sm text-muted">
             <div className="flex flex-col gap-8 md:grid md:grid-cols-3 md:gap-10">
-              <div className="flex flex-col gap-2">
-                <p className="font-display text-lg text-ink">{BRAND_NAME}</p>
+              <div className="flex flex-col gap-3">
+                <Link
+                  href="/"
+                  aria-label={`${BRAND_NAME} — página inicial`}
+                  className="inline-flex items-center gap-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 focus-visible:ring-offset-bg rounded-md"
+                >
+                  <MapPinHouseIcon className="h-6 w-6 text-primary" />
+                  <span className="font-display text-xl text-ink">{BRAND_NAME}</span>
+                </Link>
                 <p>
-                  Perfil da Empresa no Google
-                  <br />
-                  para PMEs brasileiras.
+                  Sites profissionais sob medida pra PMEs brasileiras.
                 </p>
               </div>
-              <nav aria-label="Links do rodapé">
-                <ul className="flex flex-col gap-2">
-                  <li>
-                    <a href="#hero" className="hover:text-ink hover:underline underline-offset-2">
-                      Início
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#servicos" className="hover:text-ink hover:underline underline-offset-2">
-                      Serviços
-                    </a>
-                  </li>
-                  <li>
-                    <a href="#como-funciona" className="hover:text-ink hover:underline underline-offset-2">
-                      Como funciona
-                    </a>
-                  </li>
-                  <li>
-                    <a href="/privacidade" className="hover:text-ink hover:underline underline-offset-2">
-                      Política de privacidade
-                    </a>
-                  </li>
-                </ul>
-              </nav>
               <div className="flex flex-col gap-2">
                 <p className="font-semibold text-ink">Contato</p>
                 <a
@@ -184,9 +166,23 @@ export default function RootLayout({
                   WhatsApp: {formatWhatsAppDisplay(process.env.NEXT_PUBLIC_WHATSAPP_NUMBER)}
                 </a>
               </div>
+              <nav aria-label="Links institucionais">
+                <ul className="flex flex-col gap-2">
+                  <li>
+                    <a href="/privacidade" className="hover:text-ink hover:underline underline-offset-2">
+                      Política de privacidade
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/termos" className="hover:text-ink hover:underline underline-offset-2">
+                      Termos de uso
+                    </a>
+                  </li>
+                </ul>
+              </nav>
             </div>
-            <p className="mt-8 border-t border-line pt-6 text-center">
-              © {new Date().getFullYear()} {BRAND_NAME} · Todos os direitos reservados
+            <p className="mt-10 border-t border-line/60 pt-6 text-[13px]">
+              © {new Date().getFullYear()} {BRAND_NAME}
             </p>
           </div>
         </footer>

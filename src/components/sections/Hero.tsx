@@ -1,41 +1,28 @@
-import Image from "next/image";
 import WhatsAppCTA from "@/components/ui/WhatsAppCTA";
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="px-4 sm:px-6 pt-12 pb-16 sm:pt-20 sm:pb-24 lg:pt-28 lg:pb-32"
+      className="px-6 pt-20 pb-16 lg:pt-32 lg:pb-24"
     >
-      <div className="mx-auto max-w-6xl grid gap-10 lg:grid-cols-2 lg:items-center">
-        <div className="flex flex-col gap-6">
-          <h1 className="font-display text-4xl sm:text-5xl lg:text-6xl text-ink">
-            Apareça no Google quando o cliente procurar perto de você
-          </h1>
-          <p className="text-lg sm:text-xl text-muted max-w-xl">
-            Cuido do seu Perfil da Empresa no Google de ponta a ponta — criação,
-            otimização ou recuperação de perfis suspensos. Você só paga depois
-            que está pronto.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-3">
-            <WhatsAppCTA
-              section="hero"
-              service="geral"
-              message="Olá! Vim do site da Perfiliza e quero entender qual serviço faz sentido pro meu negócio."
-            >
-              Falar agora no WhatsApp
-            </WhatsAppCTA>
-          </div>
-        </div>
-        <Image
-          src="/images/hero.webp"
-          alt="Tela de celular mostrando um Perfil da Empresa no Google completo, com fotos, avaliações e botão de chamar no WhatsApp em destaque."
-          width={2528}
-          height={1696}
-          priority
-          sizes="(min-width: 1024px) 50vw, 100vw"
-          className="w-full h-auto rounded-2xl"
-        />
+      <div className="mx-auto max-w-2xl flex flex-col gap-5 lg:gap-6">
+        <h1 className="font-display font-medium text-ink text-4xl leading-tight lg:text-6xl lg:leading-[1.1]">
+          Veja seu site pronto antes de pagar.
+        </h1>
+        <p className="text-muted text-[17px] leading-relaxed lg:text-lg">
+          A Perfiliza cria o site da sua empresa com base no que ela já tem
+          online, mostra funcionando, e você decide. R$ 347 pelo ano todo,
+          hospedagem incluída. Sem mensalidade, sem fidelização.
+        </p>
+        <WhatsAppCTA
+          section="hero"
+          service="geral"
+          message="Olá! Vim do site da Perfiliza e quero saber mais sobre o site de R$ 347."
+          className="mt-3 w-full lg:mt-4 lg:w-auto lg:self-start h-14"
+        >
+          Falar no WhatsApp
+        </WhatsAppCTA>
       </div>
     </section>
   );

@@ -1,68 +1,108 @@
+import type { ReactNode } from "react";
+
 interface Passo {
   numero: number;
+  icone: ReactNode;
   titulo: string;
   descricao: string;
+}
+
+function IconBase({ children }: { children: ReactNode }) {
+  return (
+    <svg
+      aria-hidden="true"
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth={1.75}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+      className="h-7 w-7 text-primary"
+    >
+      {children}
+    </svg>
+  );
+}
+
+function SearchCheckIcon() {
+  return (
+    <IconBase>
+      <circle cx="11" cy="11" r="8" />
+      <path d="m21 21-4.3-4.3" />
+      <path d="m8 11 2 2 4-4" />
+    </IconBase>
+  );
+}
+
+function EyeIcon() {
+  return (
+    <IconBase>
+      <path d="M2.062 12.348a1 1 0 0 1 0-.696 10.75 10.75 0 0 1 19.876 0 1 1 0 0 1 0 .696 10.75 10.75 0 0 1-19.876 0" />
+      <circle cx="12" cy="12" r="3" />
+    </IconBase>
+  );
+}
+
+function HandshakeIcon() {
+  return (
+    <IconBase>
+      <path d="m11 17 2 2a1 1 0 1 0 3-3" />
+      <path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.47.28a2 2 0 0 0 1.42.25L21 4" />
+      <path d="m21 3 1 11h-2" />
+      <path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3" />
+      <path d="M3 4h8" />
+    </IconBase>
+  );
 }
 
 const passos: Passo[] = [
   {
     numero: 1,
-    titulo: "Você manda mensagem no WhatsApp",
+    icone: <SearchCheckIcon />,
+    titulo: "1. A gente monta seu site",
     descricao:
-      "Você me conta o que precisa em 5 minutos de conversa. Sem formulário, sem cadastro, sem reunião marcada.",
+      "Usamos as informações públicas da sua empresa (Google, Instagram, fotos) pra criar um site profissional pronto. Sem reunião, sem briefing longo.",
   },
   {
     numero: 2,
-    titulo: "Eu diagnostico e mando a proposta",
+    icone: <EyeIcon />,
+    titulo: "2. Você vê funcionando",
     descricao:
-      "Faço um diagnóstico rápido e te envio um PDF com escopo, prazo e preço fechado. Sem letra miúda, sem surpresa depois.",
+      "Mandamos o link pelo WhatsApp. Você abre, navega no celular, e decide se faz sentido.",
   },
   {
     numero: 3,
-    titulo: "Executo e entrego pronto",
+    icone: <HandshakeIcon />,
+    titulo: "3. Se gostar, é R$ 347",
     descricao:
-      "Em 7 a 15 dias úteis você recebe o trabalho concluído. Aí — e só aí — você paga via PIX ou cartão pelo Mercado Pago.",
+      "Pagamento único pelo ano todo, no PIX ou parcelado no cartão. Hospedagem inclusa. Sem mensalidade.",
   },
 ];
 
 export default function ComoFunciona() {
   return (
-    <section id="como-funciona" className="px-4 sm:px-6 py-16 sm:py-24">
-      <div className="mx-auto max-w-6xl flex flex-col gap-10">
-        <header className="flex flex-col gap-3 max-w-2xl">
-          <h2 className="font-display text-3xl sm:text-4xl text-ink">
-            Simples assim, em 3 passos
-          </h2>
-          <p className="text-base sm:text-lg text-muted">
-            Sem reunião longa, sem contrato burocrático, sem mensalidade.
-          </p>
-        </header>
-        <ol className="grid gap-6 md:grid-cols-3">
+    <section
+      id="como-funciona"
+      className="px-6 py-20 sm:py-24 scroll-mt-16"
+    >
+      <div className="mx-auto max-w-5xl flex flex-col gap-12 lg:gap-16">
+        <h2 className="font-display font-medium text-ink text-3xl lg:text-4xl lg:text-center">
+          Como funciona
+        </h2>
+        <ol className="flex flex-col gap-12 lg:grid lg:grid-cols-3 lg:gap-12">
           {passos.map((p) => (
-            <li
-              key={p.numero}
-              className="flex flex-col gap-3 rounded-2xl border border-line bg-surface p-6"
-            >
-              <span
-                aria-hidden="true"
-                className="inline-flex h-10 w-10 items-center justify-center rounded-full bg-primary-soft text-primary font-bold"
-              >
-                {String(p.numero).padStart(2, "0")}
-              </span>
-              <h3 className="font-display text-lg text-ink">{p.titulo}</h3>
-              <p className="text-sm text-muted">{p.descricao}</p>
+            <li key={p.numero} className="flex flex-col gap-4">
+              {p.icone}
+              <h3 className="font-display font-medium text-ink text-[22px] leading-snug">
+                {p.titulo}
+              </h3>
+              <p className="text-muted text-base leading-relaxed">
+                {p.descricao}
+              </p>
             </li>
           ))}
         </ol>
-        <div className="rounded-2xl bg-primary-soft p-6 sm:p-8 text-center">
-          <p className="font-display text-xl sm:text-2xl text-ink">
-            Pagamento 100% após a entrega
-          </p>
-          <p className="text-sm text-muted mt-2 max-w-2xl mx-auto">
-            Você não corre risco. Se eu não entregar o combinado, você não paga.
-            PIX à vista ou cartão em até 12x pelo Mercado Pago.
-          </p>
-        </div>
       </div>
     </section>
   );
