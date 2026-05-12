@@ -7,7 +7,7 @@ Landing page institucional + de captação para a Perfiliza, negócio one-person
 - Next.js 16 (App Router), TypeScript, src/ directory
 - Tailwind CSS v4 (tokens em `src/app/globals.css` via `@theme inline`, sem `tailwind.config.ts`)
 - **Build**: static export (`output: "export"` em `next.config.ts` → diretório `out/`)
-- **Hospedagem**: Cloudflare Pages (Git Integration, auto-deploy em push pra `main`)
+- **Hospedagem**: Cloudflare Workers Builds com static assets (`wrangler.jsonc` define `assets.directory: "./out"` sem `main`, sinalizando deploy só-assets — sem OpenNext, sem Worker function). Git Integration, auto-deploy em push pra `main`.
 - Domínio: perfiliza.com
 - Sem analytics na v1 — toda interação externa é navegação direta pra `wa.me`. Quando voltarmos a medir, escolher stack compatível com CSP estrito (Plausible, Umami self-hosted, ou GTM com hash CSP).
 
