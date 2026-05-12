@@ -21,13 +21,13 @@ export const metadata: Metadata = {
 
 export default function PrivacidadePage() {
   return (
-    <main className="px-4 sm:px-6 py-12 sm:py-20">
+    <main className="px-6 py-12 sm:py-20">
       <article className="mx-auto max-w-3xl flex flex-col gap-6 text-base text-muted">
         <header className="flex flex-col gap-2">
           <h1 className="font-display text-3xl sm:text-4xl text-ink">
             Política de Privacidade
           </h1>
-          <p className="text-sm">Atualizada em 23 de abril de 2026.</p>
+          <p className="text-sm">Atualizada em 12 de maio de 2026.</p>
         </header>
 
         <section className="flex flex-col gap-3">
@@ -68,9 +68,9 @@ export default function PrivacidadePage() {
           </h2>
           <p>
             <strong>2.1. Dados que você manda voluntariamente no WhatsApp</strong>{" "}
-            ou por e-mail: seu nome, o nome do seu negócio, a cidade, o link do seu
-            perfil no Google, mensagens e qualquer informação que você compartilhar
-            espontaneamente durante o atendimento.
+            ou por e-mail: seu nome, o nome do seu negócio, a cidade, mensagens e
+            qualquer informação que você compartilhar espontaneamente durante o
+            atendimento.
           </p>
           <p>
             <strong>2.2. Dados de navegação no site:</strong> endereço IP,
@@ -79,17 +79,17 @@ export default function PrivacidadePage() {
             Google Tag Manager, Google Analytics 4 e Google Ads.
           </p>
           <p>
-            <strong>2.3. Dados públicos do seu Perfil da Empresa no Google:</strong>{" "}
-            ao receber o link do seu perfil, analisamos informações que já estão
-            publicamente visíveis no Google (nome, endereço, categoria, fotos,
-            avaliações, perguntas, posts). Nada que exija login seu.
+            <strong>2.3. Dados públicos da sua empresa:</strong>{" "}
+            para montar o seu site, consultamos informações que já estão publicamente
+            disponíveis sobre o seu negócio (Google, Instagram, redes sociais, fotos,
+            avaliações, endereço, horários). Nada que exija login seu.
           </p>
           <p>
             <strong>2.4. Dados de execução do serviço (apenas clientes):</strong>{" "}
-            quando você nos adiciona como Administrador do seu Perfil da Empresa no
-            Google, passamos a ter acesso autorizado ao painel da sua conta
-            (business.google.com) para executar o escopo contratado. Nunca pedimos a
-            sua senha.
+            quando você nos contrata, podemos receber textos, fotos e informações
+            adicionais que você queira que apareçam no site, além de dados necessários
+            para emissão de nota fiscal e — se aplicável — para registrar um domínio
+            próprio no seu nome no Registro.br.
           </p>
         </section>
 
@@ -99,12 +99,17 @@ export default function PrivacidadePage() {
           </h2>
           <ul className="list-disc space-y-2 pl-6">
             <li>
-              <strong>Responder o seu contato</strong> — base legal:{" "}
-              <em>procedimentos preliminares a contrato</em> (art. 7º, V, LGPD).
+              <strong>Responder o seu contato e elaborar a proposta</strong> — base
+              legal: <em>procedimentos preliminares a contrato</em> (art. 7º, V, LGPD).
             </li>
             <li>
-              <strong>Executar o serviço contratado</strong> — base legal:{" "}
-              <em>execução de contrato</em> (art. 7º, V, LGPD).
+              <strong>Criar, publicar e hospedar o site contratado</strong> — base
+              legal: <em>execução de contrato</em> (art. 7º, V, LGPD).
+            </li>
+            <li>
+              <strong>Avisar sobre renovação anual e suporte pós-entrega</strong> —
+              base legal: <em>execução de contrato</em> e{" "}
+              <em>legítimo interesse</em> (art. 7º, V e IX, LGPD).
             </li>
             <li>
               <strong>Medir a eficiência das campanhas</strong> (qual anúncio, qual
@@ -129,6 +134,10 @@ export default function PrivacidadePage() {
           </p>
           <ul className="list-disc space-y-2 pl-6">
             <li>
+              <strong>Vercel Inc.</strong> — hospedagem do site institucional da
+              Perfiliza e dos sites entregues aos clientes.
+            </li>
+            <li>
               <strong>Google Ireland Ltd.</strong> — Google Tag Manager, Google
               Analytics 4 e Google Ads (medição de tráfego e conversões).
             </li>
@@ -136,11 +145,12 @@ export default function PrivacidadePage() {
               <strong>WhatsApp LLC</strong> (Meta) — canal de atendimento.
             </li>
             <li>
-              <strong>Mercado Pago</strong> — cobrança via PIX para clientes
-              contratados.
+              <strong>Mercado Pago</strong> — cobrança via PIX ou cartão depois que o
+              site é aprovado.
             </li>
             <li>
-              <strong>Vercel Inc.</strong> — hospedagem do site.
+              <strong>Registro.br</strong> — registro de domínio .com.br no seu nome,
+              quando você optar pelo domínio próprio.
             </li>
             <li>
               <strong>Google Workspace</strong> — e-mail corporativo.
@@ -187,8 +197,8 @@ export default function PrivacidadePage() {
             </li>
             <li>
               <strong>Dados de clientes ativos</strong>: pelo tempo da contratação.
-              Após o cancelamento, mantemos o mínimo exigido por obrigação fiscal (até
-              5 anos).
+              Após o término, mantemos o mínimo exigido por obrigação fiscal (até 5
+              anos).
             </li>
             <li>
               <strong>Dados de analytics</strong>: retenção padrão do Google Analytics

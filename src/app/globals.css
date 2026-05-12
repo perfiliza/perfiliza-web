@@ -1,24 +1,25 @@
 @import "tailwindcss";
 
 /*
-  Design tokens extraídos de https://epic.new (warm light mode) — ver design-reference/tokens.md.
+  Paleta v1 monocromática sálvia. Fundo branco puro + off-white nos cards,
+  verde sálvia como cor de marca, verde WhatsApp mantido nos CTAs.
   Mapeamento token → utilitário Tailwind v4:
-    --color-ink           → text-ink
-    --color-muted         → text-muted
-    --color-line          → border-line
-    --color-bg            → bg-bg (fundo da página)
-    --color-surface       → bg-surface (cards)
-    --color-surface-alt   → bg-surface-alt (seções alternadas)
-    --color-primary       → text-primary (verde-oliva)
-    --color-accent        → bg-accent (terracota)
-    --color-action        → bg-action (verde WhatsApp — mantido como cor canônica do CTA)
+    --color-ink           → text-ink         (texto principal)
+    --color-muted         → text-muted       (texto secundário)
+    --color-line          → border-line      (bordas suaves)
+    --color-bg            → bg-bg            (fundo da página — branco)
+    --color-surface       → bg-surface       (cards off-white)
+    --color-surface-alt   → bg-surface-alt   (reserva pra seções alternadas)
+    --color-primary       → text-primary    (verde sálvia)
+    --color-accent        → bg-accent        (reserva — terracota)
+    --color-action        → bg-action        (verde WhatsApp — CTA principal)
 */
 @theme inline {
-  --color-bg: #F6F0E9;
-  --color-surface: #F8F4ED;
+  --color-bg: #FFFFFF;
+  --color-surface: #F5F1E8;
   --color-surface-alt: #EDE8DD;
 
-  --color-ink: #231D17;
+  --color-ink: #1F2419;
   --color-muted: #75695B;
   --color-line: #D6C9B5;
 

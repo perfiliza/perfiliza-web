@@ -37,7 +37,23 @@
       "Bash(Get-ChildItem -Path \"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\" -Directory)",
       "Bash(Select-Object Name)",
       "PowerShell(Add-Type -AssemblyName System.Drawing; $img = [System.Drawing.Image]::FromFile\\(\"C:\\\\Users\\\\rsgon\\\\Documents\\\\perfiliza-web\\\\public\\\\images\\\\hero.webp\"\\); \"$\\($img.Width\\)x$\\($img.Height\\)\"; $img.Dispose\\(\\))",
-      "Bash(node *)"
+      "Bash(node *)",
+      "WebFetch(domain:raw.githubusercontent.com)",
+      "Bash(grep -E \"\\\\.tsx$|\\\\.ts$\")",
+      "Bash(grep -q \"Ready in\\\\|Local:\" \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\bqbxi1tyg.output\")",
+      "Bash(cat \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\bqbxi1tyg.output\")",
+      "Bash(curl -s -o response.html -w \"%{http_code}\" http://localhost:3000/)",
+      "Bash(grep -o -E \"Veja seu site pronto antes de pagar|Como funciona|Falar no WhatsApp|Quero conhecer|Perguntas comuns|incluído por R\\\\\\\\\\\\$ 347|Em até 21 dias|click_whatsapp\" response.html)",
+      "Bash(curl -s -o /dev/null -w \"/termos: %{http_code}\\\\n\" http://localhost:3000/termos)",
+      "Bash(curl -s -o /dev/null -w \"/privacidade: %{http_code}\\\\n\" http://localhost:3000/privacidade)",
+      "Bash(grep -q \"Ready in\" \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\b6dlydkb1.output\")",
+      "Bash(cat *)",
+      "Bash(curl -s http://localhost:3000/)",
+      "Bash(curl -s http://localhost:3001/)",
+      "Bash(curl -s \"http://localhost:3000/_next/static/chunks/%5Broot-of-the-server%5D__01asqv8._.css\")",
+      "PowerShell(Stop-Process *)",
+      "PowerShell(Get-NetTCPConnection *)",
+      "Bash(grep -q \"Ready in\" \"C:\\\\\\\\Users\\\\\\\\rsgon\\\\\\\\AppData\\\\\\\\Local\\\\\\\\Temp\\\\\\\\claude\\\\\\\\C--Users-rsgon-Documents-perfiliza-web\\\\\\\\03a5bb6b-4343-4dd9-b236-bde6ba42f34d\\\\\\\\tasks\\\\\\\\bl7k1dz3i.output\")"
     ]
   }
 }

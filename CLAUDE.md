@@ -1,13 +1,13 @@
 # Perfiliza — Landing Page
 
-Landing page institucional + de captação para a Perfiliza, negócio one-person de serviços pontuais de Google Business Profile (GBP) para PMEs brasileiras. CTA único leva para WhatsApp.
+Landing page institucional + de captação para a Perfiliza, negócio one-person de **criação de sites institucionais para PMEs brasileiras por R$ 347/ano**, com pagamento só depois que o cliente vê o site pronto. Hospedagem inclusa, sem mensalidade, sem fidelização. CTA único leva para WhatsApp.
 
-Plano de execução completo em `docs/PLANO.md`. Este arquivo carrega o contexto que Claude Code precisa em todo prompt.
+Plano de execução em `docs/PLANO.md` (se existir). Este arquivo carrega o contexto que Claude Code precisa em todo prompt.
 
 ## Stack
 
 - Next.js 14 (App Router), TypeScript, src/ directory
-- Tailwind CSS
+- Tailwind CSS v4 (tokens em `src/app/globals.css` via `@theme inline`, sem `tailwind.config.ts`)
 - Hospedagem: Vercel (já configurada, deploy automático no push pra `main`)
 - Domínio: perfiliza.com (já apontado)
 - Tracking: Google Tag Manager → GA4 + Google Ads conversion
@@ -17,34 +17,36 @@ Plano de execução completo em `docs/PLANO.md`. Este arquivo carrega o contexto
 ```
 src/
   app/
-    layout.tsx          # GTM script + metadata
+    layout.tsx          # GTM script + metadata + header/footer globais
     page.tsx            # home (única página de marketing)
     privacidade/
       page.tsx
-    globals.css
+    termos/
+      page.tsx
+    globals.css         # design tokens via @theme inline
   components/
-    sections/           # Hero, Servicos, ComoFunciona, ProvaSocial
+    sections/           # Hero, ComoFunciona, OQueEstaIncluido, PerguntasComuns
     ui/                 # Button, Card, WhatsAppCTA
+    analytics/          # GoogleTagManager
   lib/
     gtm.ts              # helpers de dataLayer
     whatsapp.ts         # gerador de URL wa.me
+    seo/constants.ts    # nome, descrição, tagline, theme color
   types/
     gtm.d.ts
 public/
-  images/
-docs/
-  PLANO.md
-design-reference/       # screenshots da referência (não comitar imagens grandes)
+  images/               # vazio na v1 (landing é type-driven)
 ```
 
 ## Decisões fixas
 
-- **4 seções na home, sem mais:** Hero, Serviços (3 cards), Como funciona (3 passos), Prova + CTA final.
-- **CTA único:** WhatsApp via wa.me. Nada de formulário, nada de e-mail.
-- **Mobile-first:** começar layout em 360-390px e adicionar `md:` / `lg:` depois. Mais de 70% do tráfego virá de busca mobile no Google.
-- **Linguagem simples:** "Perfil da Empresa no Google" no body, não "GBP". Tom de conversa com dono de PME.
-- **Imagens via `next/image`** sempre, com `width`/`height` explícitos. Hero com `priority`. Demais com `loading="lazy"`.
-- **Acessibilidade:** alt text em toda imagem, contraste AA mínimo, foco visível, `prefers-reduced-motion` respeitado.
+- **5 seções na home, sem mais:** Hero, Como funciona (3 passos com ícones Lucide), O que está incluído (card off-white com lista + preço R$ 347), Perguntas comuns (5 perguntas em accordion), Footer (no `layout.tsx`).
+- **CTA único:** WhatsApp via `wa.me`. Nada de formulário, nada de e-mail.
+- **Mobile-first:** começar layout em 375px (iPhone SE) e adicionar `lg:` depois. Mais de 70% do tráfego virá de busca mobile.
+- **Linguagem simples:** tom de conversa com dono de PME. Sem jargão técnico. "Site da sua empresa" no corpo, nunca "website" ou "presença digital".
+- **Hero type-driven:** sem imagem, sem mockup, sem ilustração. Whitespace é o protagonista.
+- **CTAs em verde WhatsApp #25D366** — mantido como sinal visual do canal, mesmo na paleta monocromática sálvia.
+- **Acessibilidade:** contraste AA mínimo, foco visível, `prefers-reduced-motion` respeitado, área de toque ≥ 44×44px nos botões e accordion triggers.
 
 ## Tracking — padrão obrigatório
 
@@ -53,14 +55,16 @@ Todo CTA WhatsApp dispara via componente `<WhatsAppCTA />` que faz `dataLayer.pu
 ```ts
 window.dataLayer.push({
   event: 'click_whatsapp',
-  section: 'hero' | 'servicos' | 'como_funciona' | 'cta_final',
-  service: 'criacao' | 'otimizacao' | 'recuperacao' | 'geral'
+  section: 'hero' | 'como_funciona' | 'preco' | 'footer',
+  service: 'geral'
 })
 ```
 
+Como o produto agora é único, `service` é sempre `"geral"`. As `section`s refletem onde o CTA está: `hero` (Hero), `preco` (card "O que está incluído"), `footer` (link de WhatsApp no rodapé).
+
 GTM tem trigger custom event `click_whatsapp` que dispara duas tags: GA4 event + Google Ads conversion.
 
-Nunca colocar `window.open` ou `<a href="wa.me/...">` cru fora do componente — quebra tracking.
+Nunca colocar `window.open` ou `<a href="wa.me/...">` cru fora do componente — quebra tracking. Exceção: o link de WhatsApp no footer, que tem `data-cta-section="footer"` para o GTM disparar via trigger por atributo.
 
 ## Variáveis de ambiente
 
@@ -74,31 +78,27 @@ NEXT_PUBLIC_SITE_URL=https://perfiliza.com
 
 Manter `.env.example` atualizado a cada nova variável.
 
-## Decisões pendentes (Fase 0 — preencher antes de codar)
+## Decisões pendentes
 
-> Substituir cada bloco abaixo conforme decidir. Não codar componentes que dependem desses dados antes de fechar.
+- **Número de WhatsApp em produção:** confirmar valor em `NEXT_PUBLIC_WHATSAPP_NUMBER` no painel Vercel.
+- **CNPJ/endereço no footer:** ainda não exibido — adicionar quando MEI estiver formalizado.
+- **Cookie banner LGPD:** decisão de não usar na v1 (cookies apenas analíticos, sem dados pessoais identificáveis).
 
-- **Número de WhatsApp:** `[A DEFINIR]`
-- **Mensagem pré-preenchida por serviço:**
-  - Criação: `[A DEFINIR]`
-  - Otimização: `[A DEFINIR]`
-  - Recuperação: `[A DEFINIR]`
-  - Geral (CTA hero/final): `[A DEFINIR]`
-- **Visual do hero:** `[foto real | ilustração — A DEFINIR]`
-- **Cookie banner LGPD:** `[sim | não — A DEFINIR]`
-- **CNPJ/endereço no footer:** `[A DEFINIR]`
+## Tokens de design (paleta v1 monocromática sálvia)
 
-## Tokens de design (após Fase 1)
+Definidos em `src/app/globals.css` via `@theme inline`:
 
-> Preencher após análise da referência (epic.new). Adicionar em `tailwind.config.ts` em `theme.extend`.
-
-- **Paleta primária:** `[A DEFINIR — hex]`
-- **Paleta neutros:** `[A DEFINIR — escala]`
-- **Cor de destaque (CTA):** `[A DEFINIR]`
-- **Font heading:** `[A DEFINIR]` (Google Fonts)
-- **Font body:** `[A DEFINIR]`
-- **Escala tipográfica:** seguir defaults Tailwind (`text-base` → `text-7xl`) salvo decisão contrária.
-- **Border-radius padrão:** `[A DEFINIR — `rounded-lg` ou custom]`
+- **Fundo principal:** branco puro `#FFFFFF` (`bg-bg`)
+- **Cards / destaques:** off-white `#F5F1E8` (`bg-surface`)
+- **Texto principal:** `#1F2419` (`text-ink`)
+- **Texto secundário:** `#75695B` (`text-muted`)
+- **Bordas:** `#D6C9B5` (`border-line`)
+- **Marca (verde sálvia):** `#4A5A3A` (`text-primary` / `bg-primary`)
+- **CTA (verde WhatsApp):** `#25D366` (`bg-action`)
+- **Font heading:** Lora (Google Fonts, via `next/font`) — utility `font-display`
+- **Font body:** Geist (Google Fonts, via `next/font`) — utility `font-sans` (default)
+- **Border-radius:** `rounded-xl` (12px) nos cards, `rounded-full` nos botões CTA.
+- **Escala tipográfica:** defaults Tailwind. H1 mobile `text-4xl` (36px), desktop `lg:text-6xl` (60px). H2 mobile `text-3xl` / `text-[26px]`, desktop `lg:text-3xl` ou `lg:text-4xl`. Body `text-base` ou `text-[17px]` mobile.
 
 ## Convenções de código
 
@@ -109,6 +109,7 @@ Manter `.env.example` atualizado a cada nova variável.
 - Tailwind direto no JSX, sem `@apply` em CSS module exceto pra utilities globais em `globals.css`.
 - Naming: componentes em PascalCase, hooks em camelCase com prefixo `use`, helpers em camelCase.
 - Texto da UI sempre em PT-BR. Comentários em código também em PT-BR.
+- Ícones: inline SVG (não instalar `lucide-react`) seguindo o padrão de `MapPinHouseIcon` em `layout.tsx` — `viewBox="0 0 24 24"`, `stroke="currentColor"`, `strokeLinecap="round"`, `strokeLinejoin="round"`, `aria-hidden="true"`.
 
 ## Comandos
 
@@ -122,11 +123,11 @@ npm run lint         # ESLint
 ## Prioridade de qualidade
 
 1. Lighthouse mobile ≥ 90 em Performance, Accessibility, SEO.
-2. CTA acima do fold em mobile (360px).
-3. LCP < 2.5s em mobile 4G simulado.
+2. CTA acima do fold em mobile (375px).
+3. LCP < 2.5s em mobile 4G simulado (fácil — landing sem imagens).
 4. Tag Assistant verde em todos os firings (GTM, GA4, Conversion Linker, Conversion).
 5. Testar em smartphone real (Android + iPhone) antes de declarar pronto — não confiar só em DevTools.
 
 ## Persona-alvo (pra calibrar copy e UX)
 
-Dono ou gestor de PME brasileira (food service, saúde, serviços locais), 35-55 anos, pouco tempo, conhecimento técnico baixo. Dor: "perfil mal aparece no Google quando o cliente procura perto de mim" ou "perfil foi suspenso e não sei o que fazer". Decide rápido se a página soa confiável e direta. Some se vê formulário longo, jargão técnico ou promessa exagerada.
+Dono ou gestor de PME brasileira (food service, saúde, serviços locais), 35-55 anos, pouco tempo, conhecimento técnico baixo. Dor: "não tenho site, ou tenho um site velho que cobra mensalidade que não cabe no caixa", "já fui enganado prometendo SEO/marketing", "não confio em pagar antes". Decide rápido se a página soa confiável e direta. Some se vê formulário longo, jargão técnico ou promessa exagerada. A promessa central — "veja pronto antes de pagar" — é o que mais converte ceticismo.

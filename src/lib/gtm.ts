@@ -1,5 +1,5 @@
-export type Section = "hero" | "servicos" | "como_funciona" | "cta_final";
-export type Service = "criacao" | "otimizacao" | "recuperacao" | "geral";
+export type Section = "hero" | "como_funciona" | "preco" | "footer";
+export type Service = "geral";
 
 export function pushClickWhatsapp(section: Section, service: Service): void {
   if (typeof window === "undefined") return;
