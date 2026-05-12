@@ -1,15 +1,10 @@
-"use client";
-
 import type { ReactNode } from "react";
 import { buildWaUrl } from "@/lib/whatsapp";
-import { pushClickWhatsapp, type Section, type Service } from "@/lib/gtm";
 
 type Variant = "primary" | "secondary";
 type Size = "md" | "lg";
 
 interface Props {
-  section: Section;
-  service: Service;
   message: string;
   variant?: Variant;
   size?: Size;
@@ -31,8 +26,6 @@ const sizes: Record<Size, string> = {
 };
 
 export default function WhatsAppCTA({
-  section,
-  service,
   message,
   variant = "primary",
   size = "lg",
@@ -44,10 +37,6 @@ export default function WhatsAppCTA({
       href={buildWaUrl(message)}
       target="_blank"
       rel="noopener noreferrer"
-      data-cta="whatsapp"
-      data-cta-section={section}
-      data-cta-service={service}
-      onClick={() => pushClickWhatsapp(section, service)}
       className={`${base} ${variants[variant]} ${sizes[size]} ${className}`.trim()}
     >
       <WhatsAppIcon />

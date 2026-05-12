@@ -16,8 +16,6 @@ export default function Hero() {
           hospedagem incluída. Sem mensalidade, sem fidelização.
         </p>
         <WhatsAppCTA
-          section="hero"
-          service="geral"
           message="Olá! Vim do site da Perfiliza e quero saber mais sobre o site de R$ 347."
           className="mt-3 w-full lg:mt-4 lg:w-auto lg:self-start h-14"
         >

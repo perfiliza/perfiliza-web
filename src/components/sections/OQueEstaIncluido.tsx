@@ -65,8 +65,6 @@ export default function OQueEstaIncluido() {
 
         <div className="flex justify-stretch lg:justify-center">
           <WhatsAppCTA
-            section="preco"
-            service="geral"
             message="Olá! Vim do site da Perfiliza e quero conhecer melhor o site de R$ 347."
             className="w-full lg:w-auto h-14"
           >
